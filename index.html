@@ -1,187 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Resume</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            background: #ffffff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+/* Sidebar Navigation */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #2c3e50;
+    padding-top: 20px;
+    text-align: center;
+}
 
-        h1, h2 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
 
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-        }
+#sidebar ul li {
+    margin: 20px 0;
+}
 
-        h2 {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
+#sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
 
-        .section {
-            margin-bottom: 20px;
-        }
+#sidebar ul li a:hover {
+    color: #1abc9c;
+}
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+/* Hero Section */
+#hero {
+    margin-left: 200px;
+    padding: 50px;
+    text-align: center;
+    background: linear-gradient(to right, #1abc9c, #16a085);
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
-        ul li {
-            padding: 5px 0;
-        }
+.hero-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
 
-        .skills, .education {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+.hero-buttons .button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    background-color: #16a085;
+    transition: background-color 0.3s;
+}
 
-        .skills div, .education div {
-            flex: 1 1 calc(50% - 20px);
-            background: #f4f4f9;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
+.hero-buttons .button:hover {
+    background-color: #1abc9c;
+}
 
-        .experience p {
-            margin: 5px 0;
-        }
+.hero-buttons .button.secondary {
+    background-color: #34495e;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: #ffffff;
-            margin-top: 20px;
-        }
+/* Section Styles */
+section {
+    margin-left: 200px;
+    padding: 50px;
+}
 
-        footer a {
-            color: #ecf0f1;
-            text-decoration: none;
-        }
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #34495e;
+}
 
-        footer a:hover {
-            text-decoration: underline;
-        }
+section p {
+    text-align: center;
+    line-height: 1.6;
+}
 
-        @media (max-width: 768px) {
-            .skills div, .education div {
-                flex: 1 1 100%;
-            }
+/* Contact Section */
+#contact {
+    background-color: #ecf0f1;
+    padding: 50px;
+}
 
-            .container {
-                width: 95%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>VISHAL PANDEY</h1>
+#contact a {
+    text-decoration: none;
+    color: #3498db;
+}
 
-        <section class="summary section">
-            <h2>Summary</h2>
-            <p>Seasoned IT professional specializing in infrastructure management, automation, and system optimization. Proven track record of improving system performance, reducing downtime, and automating critical tasks. Adept at managing complex server environments and delivering scalable, secure solutions aligned with business objectives.</p>
-        </section>
-
-        <section class="experience section">
-            <h2>Professional Experience</h2>
-            <ul>
-                <li>
-                    <strong>System Administrator</strong> | The Weather Network (11/2022 – Present, Oakville)
-                    <ul>
-                        <li>Led the design and implementation of high-availability local server environments.</li>
-                        <li>Automated critical media tasks using Ansible, reducing on-air downtime by 15%.</li>
-                        <li>Monitored system health with Prometheus, improving reliability.</li>
-                        <li>Managed Veeam Backup solutions and over 100 Windows/Linux servers.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Senior Network Administrator</strong> | College (09/2021 – 11/2022)
-                    <ul>
-                        <li>Maintained network infrastructure, including LAN, WAN, and Wi-Fi services.</li>
-                        <li>Assisted end-users with Microsoft 365 and managed daily network operations.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Microsoft 365 Premier Technical Analyst</strong> | Sherweb (08/2020 – 09/2021)
-                    <ul>
-                        <li>Specialized in Microsoft 365 and achieved a 90% client satisfaction rate.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Database Administrator</strong> | Ixia Solutions (04/2016 – 04/2017)
-                    <ul>
-                        <li>Managed SQL Server environments and executed migration and backup procedures.</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-
-        <section class="education section">
-            <h2>Education</h2>
-            <div class="education">
-                <div>
-                    <strong>Master of Science, Computer Science</strong> <br>
-                    University of A (2017 – 2019)
-                </div>
-                <div>
-                    <strong>Bachelor of Engineering, Information Technology</strong> <br>
-                    B University (2013 – 2016)
-                </div>
-            </div>
-        </section>
-
-        <section class="skills section">
-            <h2>Skills</h2>
-            <div class="skills">
-                <div>
-                    <strong>Automation and Monitoring</strong> <br>
-                    Ansible, Prometheus, Alert Manager
-                </div>
-                <div>
-                    <strong>Virtualization Tools</strong> <br>
-                    AWS, Docker, Kubernetes, Podman
-                </div>
-                <div>
-                    <strong>Network Technologies</strong> <br>
-                    Cisco Meraki Routers, LAN, WAN, TCP/IP
-                </div>
-                <div>
-                    <strong>Scripting</strong> <br>
-                    PowerShell, Shell, Python
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>Designed by VIshal Pandey | <a href="https://github.com/vishaal18">GitHub</a></p>
-    </footer>
-</body>
-</html>
+#contact iframe {
+    margin-top: 20px;
+    border: none;
+}
