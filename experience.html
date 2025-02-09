@@ -11,6 +11,7 @@
             font-family: 'Roboto', Arial, sans-serif;
             background: linear-gradient(to right, #f9f9f9, #e3e3e3);
             margin: 0;
+            padding: 0;
         }
         header {
             text-align: center;
@@ -22,52 +23,75 @@
             padding: 10px;
             text-decoration: none;
             color: #fff;
+            margin: 0 5px;
         }
-        nav a:hover, nav a.active {
+        nav a:hover {
             background-color: #555;
+            padding: 10px;
             border-radius: 5px;
         }
         h2 {
+            font-size: 24px;
             text-align: center;
             margin: 20px 0;
         }
-        .experience-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #333;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .container {
+            padding: 10px 20px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .container.left {
+            left: 0;
+        }
+        .container.right {
+            left: 50%;
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #333;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .container.right::after {
+            left: -12px;
+        }
+        .content {
             padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container.left .content {
+            margin-left: auto;
+            text-align: right;
+        }
+        .container.right .content {
+            margin-right: auto;
             text-align: left;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-        .card h3 {
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .card h3 i {
-            color: #555;
-            margin-right: 10px;
-        }
-        .card p {
-            font-size: 0.9rem;
-            margin: 10px 0;
-            color: #666;
-        }
-        .card ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            font-size: 0.9rem;
         }
         footer {
             text-align: center;
@@ -89,44 +113,56 @@
     </header>
 
     <main>
-        <h2>Professional Experience</h2>
-        <div class="experience-container">
-            <div class="card">
-                <h3><i class="fas fa-server"></i> System Administrator</h3>
-                <p><strong>The Weather Network</strong> | 11/2022 – Present | Oakville</p>
-                <ul>
-                    <li>Led design and implementation of high-availability local server environments.</li>
-                    <li>Automated critical media tasks using Ansible, reducing downtime by 15%.</li>
-                    <li>Monitored system health with Prometheus, improving incident response times.</li>
-                    <li>Deployed and managed Veeam Backup solutions for disaster recovery.</li>
-                </ul>
+        <section id="experience" class="timeline">
+            <h2>Professional Experience</h2>
+
+            <div class="container left">
+                <div class="content">
+                    <h3><i class="fas fa-server"></i> System Administrator - The Weather Network</h3>
+                    <p><strong>11/2022 – Present</strong> | Oakville</p>
+                    <ul>
+                        <li>Led design and implementation of high-availability local server environments.</li>
+                        <li>Automated critical media tasks using Ansible, reducing downtime by 15%.</li>
+                        <li>Monitored system health with Prometheus, improving incident response times.</li>
+                        <li>Deployed and managed Veeam Backup solutions for disaster recovery.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3><i class="fas fa-network-wired"></i> Senior Network Administrator</h3>
-                <p><strong>Northern Lights College</strong> | 09/2021 – 11/2022 | Fort St John</p>
-                <ul>
-                    <li>Designed, planned, and maintained network infrastructure.</li>
-                    <li>Managed Microsoft 365 applications and services.</li>
-                    <li>Handled daily management of networking components like routers, switches, and firewalls.</li>
-                </ul>
+
+            <div class="container right">
+                <div class="content">
+                    <h3><i class="fas fa-network-wired"></i> Senior Network Administrator - Northern Lights College</h3>
+                    <p><strong>09/2021 – 11/2022</strong> | Fort St John</p>
+                    <ul>
+                        <li>Designed, planned, and maintained network infrastructure.</li>
+                        <li>Managed Microsoft 365 applications and services.</li>
+                        <li>Handled daily management of networking components like routers, switches, and firewalls.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3><i class="fas fa-laptop"></i> Microsoft 365 Premier Technical Analyst</h3>
-                <p><strong>Sherweb</strong> | 08/2020 – 09/2021 | Sherbrooke</p>
-                <ul>
-                    <li>Specialized in Microsoft 365 products, including Exchange Online and Endpoint Manager.</li>
-                    <li>Achieved a 90% customer satisfaction rate for escalations.</li>
-                </ul>
+
+            <div class="container left">
+                <div class="content">
+                    <h3><i class="fas fa-laptop"></i> Microsoft 365 Premier Technical Analyst - Sherweb</h3>
+                    <p><strong>08/2020 – 09/2021</strong> | Sherbrooke</p>
+                    <ul>
+                        <li>Specialized in Microsoft 365 products, including Exchange Online and Endpoint Manager.</li>
+                        <li>Achieved a 90% customer satisfaction rate for escalations.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-                <h3><i class="fas fa-database"></i> Database Administrator</h3>
-                <p><strong>Ixia Solutions</strong> | 04/2016 – 04/2017 | Mumbai</p>
-                <ul>
-                    <li>Managed SQL Server 2012 production environments.</li>
-                    <li>Performed database migration, backup, and recovery tasks.</li>
-                </ul>
+
+            <div class="container right">
+                <div class="content">
+                    <h3><i class="fas fa-database"></i> Database Administrator - Ixia Solutions</h3>
+                    <p><strong>04/2016 – 04/2017</strong> | Mumbai</p>
+                    <ul>
+                        <li>Managed SQL Server 2012 production environments.</li>
+                        <li>Performed database migration, backup, and recovery tasks.</li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>
