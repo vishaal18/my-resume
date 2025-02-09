@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Vishal Pandey</title>
+    <title>Skills & Expertise - Vishal Pandey</title>
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -29,89 +29,71 @@
         h2, h3 {
             font-family: 'Roboto', sans-serif;
         }
-        .skill-category {
+        .skills {
             background-color: #fff;
-            margin: 20px 0;
-            padding: 15px;
+            margin: 20px auto;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
         }
-        .skill-category h3 {
-            display: flex;
-            align-items: center;
+        .skills h3 {
+            color: #333;
+            margin-bottom: 10px;
         }
-        .skill-category h3 i {
-            margin-right: 10px;
+        .skills p {
+            color: #555;
         }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
+        .skills ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 20px;
+        .skills ul li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Skills</h1>
+        <h1>Skills & Expertise</h1>
         <nav>
             <a href="index.html">Home</a>
             <a href="experience.html">Experience</a>
-            <a href="skills.html" class="active">Skills</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-    <main>
-        <section id="skills">
-            <h2>Skills</h2>
+    <section class="skills">
+        <h2>Technical Expertise</h2>
+        <p>I bring a diverse skill set to the table, combining technical mastery with hands-on experience in managing, automating, and optimizing IT systems.</p>
 
-            <div class="skill-category">
-                <h3><i class="fas fa-cogs"></i> Automation & Monitoring</h3>
-                <ul>
-                    <li>Ansible</li>
-                    <li>Prometheus</li>
-                    <li>Alert Manager</li>
-                </ul>
-            </div>
+        <h3>Key Skills</h3>
+        <ul>
+            <li><strong>Infrastructure Management:</strong> Expertise in designing and implementing high-availability server environments.</li>
+            <li><strong>Automation:</strong> Proficient in Ansible for automating repetitive tasks and improving efficiency.</li>
+            <li><strong>System Monitoring:</strong> Skilled in Prometheus for proactive system health monitoring and incident response.</li>
+            <li><strong>Disaster Recovery:</strong> Experience with Veeam Backup for reliable and scalable backup solutions.</li>
+            <li><strong>Networking:</strong> Strong understanding of routers, switches, firewalls, and managing network components.</li>
+            <li><strong>Cloud Services:</strong> Deep knowledge of Microsoft 365, including Exchange Online and Endpoint Manager.</li>
+            <li><strong>Database Management:</strong> Proficient in SQL Server, handling migrations, backups, and recovery.</li>
+            <li><strong>Containers:</strong> Familiar with Docker, Podman, and Kubernetes for managing containerized applications.</li>
+        </ul>
 
-            <div class="skill-category">
-                <h3><i class="fas fa-cloud"></i> Cloud & Virtualization</h3>
-                <ul>
-                    <li>AWS</li>
-                    <li>Docker</li>
-                    <li>Kubernetes</li>
-                    <li>Podman</li>
-                </ul>
-            </div>
+        <h3>Tools & Technologies</h3>
+        <ul>
+            <li>Ansible, Prometheus, Veeam Backup</li>
+            <li>AWS, Docker, Kubernetes, Podman</li>
+            <li>Microsoft 365 Suite (Exchange Online, Endpoint Manager)</li>
+            <li>SQL Server, MySQL</li>
+            <li>Networking (Cisco Meraki, Fortinet, Netgear)</li>
+            <li>Scripting: PowerShell, Python, Bash</li>
+        </ul>
 
-            <div class="skill-category">
-                <h3><i class="fas fa-network-wired"></i> Network Technologies</h3>
-                <ul>
-                    <li>Cisco Meraki</li>
-                    <li>Routers & Switches</li>
-                    <li>Internet, LAN, WAN</li>
-                    <li>TCP/IP, ACL, NAT, PAT, Multicast, VPN</li>
-                </ul>
-            </div>
-
-            <div class="skill-category">
-                <h3><i class="fas fa-code"></i> Scripting</h3>
-                <ul>
-                    <li>PowerShell</li>
-                    <li>Shell</li>
-                    <li>Python</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Vishal Pandey</p>
-    </footer>
+        <h3>Why Work With Me?</h3>
+        <p>I focus on delivering results by combining technical know-how with a commitment to efficiency and innovation. Whether it's automating processes, optimizing networks, or managing systems, my approach ensures reliability and scalability tailored to unique organizational needs.</p>
+    </section>
 </body>
 </html>
