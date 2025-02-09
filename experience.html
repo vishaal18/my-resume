@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience - Vishal Pandey</title>
-    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', Arial, sans-serif;
             background: linear-gradient(to right, #f9f9f9, #e3e3e3);
+            margin: 0;
         }
         header {
             text-align: center;
@@ -23,29 +23,51 @@
             text-decoration: none;
             color: #fff;
         }
-        nav a:hover {
+        nav a:hover, nav a.active {
             background-color: #555;
+            border-radius: 5px;
         }
-        h2, h3 {
-            font-family: 'Roboto', sans-serif;
-        }
-        .job {
-            background-color: #fff;
+        h2 {
+            text-align: center;
             margin: 20px 0;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .job h3 {
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card h3 {
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
+            margin-bottom: 10px;
         }
-        .job h3 i {
+        .card h3 i {
+            color: #555;
             margin-right: 10px;
         }
-        ul {
+        .card p {
+            font-size: 0.9rem;
+            margin: 10px 0;
+            color: #666;
+        }
+        .card ul {
             list-style-type: disc;
             padding-left: 20px;
+            font-size: 0.9rem;
         }
         footer {
             text-align: center;
@@ -67,12 +89,11 @@
     </header>
 
     <main>
-        <section id="experience">
-            <h2>Professional Experience</h2>
-
-            <div class="job">
-                <h3><i class="fas fa-server"></i> System Administrator - The Weather Network</h3>
-                <p><strong>11/2022 – Present</strong> | Oakville</p>
+        <h2>Professional Experience</h2>
+        <div class="experience-container">
+            <div class="card">
+                <h3><i class="fas fa-server"></i> System Administrator</h3>
+                <p><strong>The Weather Network</strong> | 11/2022 – Present | Oakville</p>
                 <ul>
                     <li>Led design and implementation of high-availability local server environments.</li>
                     <li>Automated critical media tasks using Ansible, reducing downtime by 15%.</li>
@@ -80,36 +101,32 @@
                     <li>Deployed and managed Veeam Backup solutions for disaster recovery.</li>
                 </ul>
             </div>
-
-            <div class="job">
-                <h3><i class="fas fa-network-wired"></i> Senior Network Administrator - Northern Lights College</h3>
-                <p><strong>09/2021 – 11/2022</strong> | Fort St John</p>
+            <div class="card">
+                <h3><i class="fas fa-network-wired"></i> Senior Network Administrator</h3>
+                <p><strong>Northern Lights College</strong> | 09/2021 – 11/2022 | Fort St John</p>
                 <ul>
                     <li>Designed, planned, and maintained network infrastructure.</li>
                     <li>Managed Microsoft 365 applications and services.</li>
                     <li>Handled daily management of networking components like routers, switches, and firewalls.</li>
                 </ul>
             </div>
-
-            <div class="job">
-                <h3><i class="fas fa-laptop"></i> Microsoft 365 Premier Technical Analyst - Sherweb</h3>
-                <p><strong>08/2020 – 09/2021</strong> | Sherbrooke</p>
+            <div class="card">
+                <h3><i class="fas fa-laptop"></i> Microsoft 365 Premier Technical Analyst</h3>
+                <p><strong>Sherweb</strong> | 08/2020 – 09/2021 | Sherbrooke</p>
                 <ul>
                     <li>Specialized in Microsoft 365 products, including Exchange Online and Endpoint Manager.</li>
                     <li>Achieved a 90% customer satisfaction rate for escalations.</li>
                 </ul>
             </div>
-
-            <div class="job">
-                <h3><i class="fas fa-database"></i> Database Administrator - Ixia Solutions</h3>
-                <p><strong>04/2016 – 04/2017</strong> | Mumbai</p>
+            <div class="card">
+                <h3><i class="fas fa-database"></i> Database Administrator</h3>
+                <p><strong>Ixia Solutions</strong> | 04/2016 – 04/2017 | Mumbai</p>
                 <ul>
                     <li>Managed SQL Server 2012 production environments.</li>
                     <li>Performed database migration, backup, and recovery tasks.</li>
                 </ul>
             </div>
-
-        </section>
+        </div>
     </main>
 
     <footer>
