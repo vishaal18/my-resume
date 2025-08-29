@@ -3,95 +3,901 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Expertise - Vishal Pandey</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <title>Technical Skills - Vishal Pandey</title>
+    <meta name="description" content="Technical skills and expertise in automation, cloud infrastructure, monitoring, and Microsoft 365 administration.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(to right, #f9f9f9, #e3e3e3);
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        header {
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-color: #93c5fd;
+            --success-color: #34d399;
+            --warning-color: #fbbf24;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            --border-color: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: var(--transition);
+            padding-top: 4rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--bg-gradient);
+            padding: 6rem 0 4rem;
             text-align: center;
-            padding: 20px;
-            background-color: #333;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Skills Overview */
+        .skills-overview {
+            padding: 4rem 0;
+            background: var(--bg-primary);
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .skill-category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .category-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-header p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .skill-level {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .skill-level.expert {
+            background: var(--success-color);
             color: white;
         }
-        nav a {
-            padding: 10px;
-            text-decoration: none;
-            color: #fff;
+
+        .skill-level.intermediate {
+            background: var(--warning-color);
+            color: white;
         }
-        nav a:hover {
-            background-color: #555;
+
+        .skill-bar {
+            background: var(--bg-secondary);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
         }
-        h2, h3 {
-            font-family: 'Roboto', sans-serif;
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+            transition: width 2s ease-out;
+            width: 0%;
         }
-        .skills {
-            background-color: #fff;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 800px;
+
+        .skill-item p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin: 0;
         }
-        .skills h3 {
-            color: #333;
-            margin-bottom: 10px;
+
+        /* Learning Section */
+        .learning-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
         }
-        .skills p {
-            color: #555;
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
         }
-        .skills ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 10px;
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
-        .skills ul li {
-            margin-bottom: 8px;
+
+        .learning-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .learning-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .learning-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .learning-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .learning-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .learning-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-800 { animation-delay: 0.8s; }
+        .delay-1000 { animation-delay: 1.0s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Skills & Expertise</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="experience.html">Experience</a>
-            <a href="skills.html">Skills</a>
-            <a href="education.html">Education & Projects</a>
-        </nav>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="exp.html" class="nav-link">Experience</a></li>
+                <li><a href="skills.html" class="nav-link active">Skills</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
-    <section class="skills">
-        <h2>Technical Expertise</h2>
-        <p>I bring a diverse skill set to the table, combining technical mastery with hands-on experience in managing, automating, and optimizing IT systems.</p>
-
-        <h3>Key Skills</h3>
-        <ul>
-            <li><strong>Infrastructure Management:</strong> Expertise in designing and implementing high-availability server environments.</li>
-            <li><strong>Automation:</strong> Proficient in Ansible for automating repetitive tasks and improving efficiency.</li>
-            <li><strong>System Monitoring:</strong> Skilled in Prometheus for proactive system health monitoring and incident response.</li>
-            <li><strong>Disaster Recovery:</strong> Experience with Veeam Backup for reliable and scalable backup solutions.</li>
-            <li><strong>Networking:</strong> Strong understanding of routers, switches, firewalls, and managing network components.</li>
-            <li><strong>Cloud Services:</strong> Deep knowledge of Microsoft 365, including Exchange Online and Endpoint Manager.</li>
-            <li><strong>Database Management:</strong> Proficient in SQL Server, handling migrations, backups, and recovery.</li>
-            <li><strong>Containers:</strong> Familiar with Docker, Podman, and Kubernetes for managing containerized applications.</li>
-        </ul>
-
-        <h3>Tools & Technologies</h3>
-        <ul>
-            <li>Ansible, Prometheus, Veeam Backup</li>
-            <li>AWS, Docker, Kubernetes, Podman</li>
-            <li>Microsoft 365 Suite (Exchange Online, Endpoint Manager)</li>
-            <li>SQL Server, MySQL</li>
-            <li>Networking (Cisco Meraki, Fortinet, Netgear)</li>
-            <li>Scripting: PowerShell, Python, Bash</li>
-        </ul>
-
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in-up">Technical Skills & Expertise</h1>
+            <p class="page-subtitle fade-in-up delay-200">Comprehensive skillset in Site Reliability Engineering, Infrastructure Automation, and Cloud Technologies</p>
+        </div>
     </section>
+
+    <!-- Skills Overview -->
+    <section class="skills-overview">
+        <div class="container">
+            <div class="overview-stats">
+                <div class="stat-card fade-in-up">
+                    <i class="fas fa-server"></i>
+                    <h3>100+</h3>
+                    <p>Servers Managed</p>
+                </div>
+                <div class="stat-card fade-in-up delay-200">
+                    <i class="fas fa-clock"></i>
+                    <h3>5+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-card fade-in-up delay-400">
+                    <i class="fas fa-tools"></i>
+                    <h3>20+</h3>
+                    <p>Technologies Mastered</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Categories -->
+    <section class="skills-section">
+        <div class="container">
+            
+            <!-- Automation & Infrastructure as Code -->
+            <div class="skill-category-section fade-in-up">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div>
+                        <h2>Automation & Infrastructure as Code</h2>
+                        <p>Expertise in automating deployment workflows and managing infrastructure through code</p>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Ansible</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                        <p>Configuration management, deployment automation, and orchestration of complex workflows</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Terraform</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                        <p>Infrastructure provisioning and management across cloud and on-premises environments</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>PowerShell</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                        <p>Advanced scripting for Windows automation and Microsoft 365 administration</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Python</h3>
+                            <span class="skill-level intermediate">Learning</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="60"></div>
+                        </div>
+                        <p>Scripting, automation, and integration with monitoring and cloud services</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cloud & Infrastructure -->
+            <div class="skill-category-section fade-in-up delay-200">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div>
+                        <h2>Cloud & Infrastructure</h2>
+                        <p>Managing hybrid cloud environments and containerized applications</p>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>AWS</h3>
+                            <span class="skill-level intermediate">Learning</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="65"></div>
+                        </div>
+                        <p>EC2, S3, CloudWatch, and other core services for cloud infrastructure</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Kubernetes</h3>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                        <p>Container orchestration, scaling, and management of microservices</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Docker</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                        <p>Containerization, image management, and deployment optimization</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Proxmox</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                        <p>Virtualization platform management and infrastructure optimization</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monitoring & Observability -->
+            <div class="skill-category-section fade-in-up delay-400">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h2>Monitoring & Observability</h2>
+                        <p>Comprehensive monitoring solutions for proactive system health management</p>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Prometheus</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                        <p>Metrics collection, alerting, and time-series database management</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Grafana</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="88"></div>
+                        </div>
+                        <p>Dashboard creation, visualization, and monitoring analytics</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>ELK Stack</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                        <p>Centralized logging, log analysis, and troubleshooting acceleration</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Zabbix</h3>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="70"></div>
+                        </div>
+                        <p>Network monitoring, server health checks, and alerting systems</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Microsoft 365 & Collaboration -->
+            <div class="skill-category-section fade-in-up delay-600">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div>
+                        <h2>Microsoft 365 & Collaboration</h2>
+                        <p>Deep expertise in Microsoft cloud services and enterprise collaboration tools</p>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Exchange Online</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="95"></div>
+                        </div>
+                        <p>Email administration, migration, and hybrid deployments</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Microsoft Teams</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90"></div>
+                        </div>
+                        <p>Teams deployment, governance, and integration management</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>Endpoint Manager</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85"></div>
+                        </div>
+                        <p>Device management, policy enforcement, and security compliance</p>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <h3>SharePoint Online</h3>
+                            <span class="skill-level intermediate">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75"></div>
+                        </div>
+                        <p>Content management, site administration, and backup strategies</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Continuous Learning -->
+    <section class="learning-section">
+        <div class="container">
+            <h2 class="section-title">Continuous Learning</h2>
+            <div class="learning-grid">
+                <div class="learning-card fade-in-up">
+                    <i class="fab fa-aws"></i>
+                    <h3>AWS Certification</h3>
+                    <p>Currently pursuing AWS Solutions Architect certification to expand cloud expertise and validate skills in cloud architecture design.</p>
+                </div>
+                <div class="learning-card fade-in-up delay-200">
+                    <i class="fab fa-python"></i>
+                    <h3>Python Development</h3>
+                    <p>Enhancing Python skills for automation, monitoring, and cloud integration to build more sophisticated SRE tooling.</p>
+                </div>
+                <div class="learning-card fade-in-up delay-400">
+                    <i class="fas fa-dharmachakra"></i>
+                    <h3>Advanced Kubernetes</h3>
+                    <p>Deepening knowledge in Kubernetes administration, service mesh technologies, and cloud-native application deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Vishal Pandey. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/vispan" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:zak.vishal@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+            }
+        });
+
+        // Smooth scrolling navbar effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.98)' 
+                    : 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.95)' 
+                    : 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate skill progress bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.skill-progress');
+                    if (progressBar) {
+                        const progress = progressBar.getAttribute('data-progress');
+                        setTimeout(() => {
+                            progressBar.style.width = progress + '%';
+                        }, 200);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all skill items
+        document.addEventListener('DOMContentLoaded', () => {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Animate fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                const fadeObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                fadeObserver.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
