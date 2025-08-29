@@ -3,112 +3,793 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education & Projects</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <title>Education & Projects - Vishal Pandey</title>
+    <meta name="description" content="Educational background and key projects showcasing technical expertise in Site Reliability Engineering and Infrastructure Management.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-color: #93c5fd;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            --border-color: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background: linear-gradient(to right, #f9f9f9, #e3e3e3);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: var(--transition);
+            padding-top: 4rem;
         }
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        h1 {
-            font-family: 'Roboto', sans-serif;
-            margin-bottom: 0;
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
         }
-        nav a {
-            padding: 10px;
+
+        [data-theme="dark"] .navbar {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
-            color: #fff;
         }
-        nav a:hover {
-            background-color: #555;
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-        section {
-            margin: 20px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
         }
-        section h2 {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            border-bottom: 2px solid #e3e3e3;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
         }
-        ul {
-            list-style-type: square;
-            padding-left: 20px;
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
         }
-        ul li {
-            margin-bottom: 10px;
-            line-height: 1.5;
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: var(--transition);
         }
-        footer {
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            background: var(--bg-gradient);
+            padding: 6rem 0 4rem;
             text-align: center;
-            padding: 20px;
-            background-color: #333;
             color: white;
-            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s ease-out forwards;
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
         }
-        @keyframes fadeIn {
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Education Section */
+        .education-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .education-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .degree-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .university {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .degree-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 6rem 0;
+            background: var(--bg-secondary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .project-impact {
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .impact-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.25rem;
+        }
+
+        .impact-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            padding: 6rem 0;
+            background: var(--bg-primary);
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cert-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-status {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .cert-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-up:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in-up:nth-child(3) { animation-delay: 0.4s; }
+        .fade-in-up:nth-child(4) { animation-delay: 0.6s; }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .education-grid,
+            .projects-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Education & Projects</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="experience.html">Experience</a>
-            <a href="skills.html">Skills</a>
-            <a href="education.html"class="active">Education & Projects</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="fade-in">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>Master of Science in Computer Science</strong> - University of Regina </li>
-                <li><strong>Bachelor of Engineering in Information Technology</strong> - Mumbai Universiy </li>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">VP</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="education.html" class="nav-link active">Education</a></li>
             </ul>
-        </section>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
 
-        <section class="fade-in">
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Asset Management System:</strong> Designed a web-based tool to track physical and digital assets with features like asset registration, maintenance scheduling, and reports.</li>
-                <li><strong>Cloud Monitoring Automation:</strong> Developed scripts using Python and Prometheus to monitor cloud resources and generate alerts for anomalies.</li>
-                <li><strong>Containerized Application Deployment:</strong> Built and managed Docker containers for scalable microservices applications using Kubernetes and Podman.</li>
-                <li><strong>Custom Backup Solution:</strong> Implemented automated backup and recovery workflows using Veeam Backup for critical enterprise systems.</li>
-            </ul>
-        </section>
-    </main>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in-up">Education & Projects</h1>
+            <p class="page-subtitle fade-in-up delay-200">Academic foundation and practical projects that shaped my expertise in Site Reliability Engineering</p>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Vishal Pandey</p>
+    <!-- Education Section -->
+    <section class="education-section">
+        <div class="container">
+            <h2 class="section-title">Educational Background</h2>
+            <div class="education-grid">
+                <div class="education-card fade-in-up">
+                    <h3 class="degree-title">Master of Science in Computer Science</h3>
+                    <p class="university">University of Regina</p>
+                    <p class="duration">2017 – 2019 | Regina, Canada</p>
+                    <p class="degree-description">
+                        Advanced studies in computer systems, distributed computing, and software engineering. 
+                        Focused on system reliability, performance optimization, and scalable architecture design. 
+                        This program provided the theoretical foundation for my current work in Site Reliability Engineering.
+                    </p>
+                </div>
+
+                <div class="education-card fade-in-up delay-200">
+                    <h3 class="degree-title">Bachelor of Engineering in Information Technology</h3>
+                    <p class="university">Mumbai University</p>
+                    <p class="duration">2013 – 2016 | Mumbai, India</p>
+                    <p class="degree-description">
+                        Comprehensive undergraduate program covering computer networks, database systems, 
+                        software development, and information systems management. Built strong fundamentals 
+                        in programming, system administration, and IT infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card fade-in-up">
+                    <div class="project-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="project-title">Asset Management System</h3>
+                    <p class="project-description">
+                        Designed and developed a comprehensive web-based asset management system to track physical and digital assets across the organization. Features include automated asset registration, maintenance scheduling, lifecycle tracking, and detailed reporting capabilities.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Reduced asset tracking time by 60% and improved audit compliance</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up delay-200">
+                    <div class="project-icon">
+                        <i class="fas fa-cloud-monitor"></i>
+                    </div>
+                    <h3 class="project-title">Cloud Monitoring Automation</h3>
+                    <p class="project-description">
+                        Developed intelligent monitoring scripts using Python and Prometheus to automatically monitor cloud resources, detect anomalies, and generate real-time alerts. Integrated with Grafana for comprehensive visualization and Slack for instant notifications.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Prometheus</span>
+                        <span class="tech-tag">Grafana</span>
+                        <span class="tech-tag">AWS CloudWatch</span>
+                        <span class="tech-tag">Slack API</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Reduced incident response time by 40% and improved system visibility</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up delay-400">
+                    <div class="project-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <h3 class="project-title">Containerized Application Deployment</h3>
+                    <p class="project-description">
+                        Built and managed Docker containers for scalable microservices applications using Kubernetes and Podman. Implemented CI/CD pipelines with automated testing, security scanning, and progressive deployment strategies for zero-downtime releases.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Podman</span>
+                        <span class="tech-tag">GitLab CI/CD</span>
+                        <span class="tech-tag">Helm</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Achieved 99.9% deployment success rate and 50% faster releases</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up delay-600">
+                    <div class="project-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="project-title">Custom Backup Solution</h3>
+                    <p class="project-description">
+                        Implemented automated backup and recovery workflows using Veeam Backup for critical enterprise systems. Designed disaster recovery procedures, automated testing of backup integrity, and created comprehensive recovery documentation.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Veeam Backup</span>
+                        <span class="tech-tag">PowerShell</span>
+                        <span class="tech-tag">Windows Server</span>
+                        <span class="tech-tag">VMware</span>
+                        <span class="tech-tag">Azure Storage</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Reduced backup failure rate to <1% and improved RTO by 70%</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up delay-800">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="project-title">Infrastructure Automation Framework</h3>
+                    <p class="project-description">
+                        Created a comprehensive automation framework using Ansible and Terraform for infrastructure provisioning and configuration management. Developed reusable modules for common deployment scenarios and integrated with version control for infrastructure as code practices.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Git</span>
+                        <span class="tech-tag">YAML</span>
+                        <span class="tech-tag">Jenkins</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Reduced manual deployment errors by 85% and improved consistency</p>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in-up delay-1000">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="project-title">Security Compliance Dashboard</h3>
+                    <p class="project-description">
+                        Built a real-time security compliance monitoring dashboard that tracks system security metrics, vulnerability assessments, and compliance status across hybrid infrastructure. Integrated with multiple security tools and provides automated reporting.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">ELK Stack</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Grafana</span>
+                        <span class="tech-tag">Nessus API</span>
+                        <span class="tech-tag">Splunk</span>
+                    </div>
+                    <div class="project-impact">
+                        <p class="impact-label">Impact:</p>
+                        <p class="impact-value">Improved security posture visibility by 90% and reduced audit time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-section">
+        <div class="container">
+            <h2 class="section-title">Certifications & Learning Path</h2>
+            <div class="certifications-grid">
+                
+                <div class="certification-card fade-in-up">
+                    <i class="fab fa-aws cert-icon"></i>
+                    <h3 class="cert-title">AWS Solutions Architect</h3>
+                    <p class="cert-status">In Progress</p>
+                    <p class="cert-description">
+                        Currently pursuing AWS Solutions Architect Associate certification to validate cloud architecture and deployment skills on Amazon Web Services platform.
+                    </p>
+                </div>
+
+                <div class="certification-card fade-in-up delay-200">
+                    <i class="fas fa-dharmachakra cert-icon"></i>
+                    <h3 class="cert-title">Kubernetes Administrator</h3>
+                    <p class="cert-status">Planned for 2025</p>
+                    <p class="cert-description">
+                        Planning to obtain Certified Kubernetes Administrator (CKA) certification to demonstrate expertise in container orchestration and cluster management.
+                    </p>
+                </div>
+
+                <div class="certification-card fade-in-up delay-400">
+                    <i class="fab fa-microsoft cert-icon"></i>
+                    <h3 class="cert-title">Microsoft 365 Certified</h3>
+                    <p class="cert-status">Professional Experience</p>
+                    <p class="cert-description">
+                        Extensive hands-on experience with Microsoft 365 administration, Exchange Online, Teams, and Endpoint Manager through professional roles.
+                    </p>
+                </div>
+
+                <div class="certification-card fade-in-up delay-600">
+                    <i class="fas fa-graduation-cap cert-icon"></i>
+                    <h3 class="cert-title">ITIL Foundation</h3>
+                    <p class="cert-status">Considering</p>
+                    <p class="cert-description">
+                        Considering ITIL Foundation certification to formalize knowledge of IT service management best practices and incident management.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Vishal Pandey. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/vispan" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:zak.vishal@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Apply saved theme on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+            }
+        });
+
+        // Smooth scrolling navbar effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.98)' 
+                    : 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.95)' 
+                    : 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animate progress bars when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
