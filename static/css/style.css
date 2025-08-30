@@ -1219,15 +1219,44 @@ p {
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--bg-primary);
         flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 1rem;
+        padding: var(--spacing-lg);
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border-color);
     }
-    
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
     .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem 2rem;
+        padding: 0 var(--spacing-md);
     }
 }
 
