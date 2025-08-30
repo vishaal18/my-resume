@@ -141,74 +141,64 @@
             color: var(--primary-color);
         }
 
-        /* Hamburger */
-        .hamburger {
+        /* Hamburger / Mobile menu toggle */
+        .mobile-menu-toggle {
             display: none;
             flex-direction: column;
             justify-content: space-between;
-            width: 28px;
-            height: 20px;
+            width: 30px;
+            height: 24px;
             background: none;
             border: none;
             cursor: pointer;
+            margin-left: 1rem;
             padding: 0;
         }
 
-        .hamburger span {
-            display: block;
-            height: 3px;
+        .hamburger-line {
             width: 100%;
-            background: var(--text-primary);
+            height: 3px;
+            background-color: var(--text-primary);
             border-radius: 2px;
             transition: var(--transition);
         }
 
-        .hamburger:focus {
+        .mobile-menu-toggle:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
             border-radius: 4px;
         }
 
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px,5px);
+        }
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) { opacity: 0; }
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px,-5px);
+        }
+
         /* Mobile nav */
         @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
+            .mobile-menu-toggle { display: flex; }
 
             .nav-menu {
                 display: none;
                 position: absolute;
                 top: 4rem;
-                right: 1rem;
+                left: 0;
+                right: 0;
                 background: var(--bg-primary);
                 flex-direction: column;
-                gap: 0.5rem;
-                padding: 0.75rem 1rem;
-                border-radius: var(--radius);
-                box-shadow: var(--shadow-md);
-                min-width: 160px;
-                z-index: 1100;
+                padding: 1rem 2rem;
+                border-top: 1px solid var(--border-color);
+                z-index: 999;
             }
 
-            .nav-menu.show {
-                display: flex;
-            }
+            .nav-menu.active { display: flex; }
+            .nav-menu li { margin: 0.5rem 0; }
 
             /* slightly adjust spacing on small screens */
-            .nav-container {
-                padding: 0 1rem;
-            }
-        }
-
-        /* Hamburger animation (X when active) */
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translateY(6px);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translateY(-6px);
+            .nav-container { padding: 0 1rem; }
         }
 
         /* Page Header */
@@ -571,22 +561,22 @@
         <div class="nav-container">
             <a href="index.html" class="logo">VP</a>
 
-            <!-- Hamburger button (mobile only) -->
-            <button id="hamburger" class="hamburger" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
             <ul class="nav-menu" id="nav-menu" role="menu">
                 <li><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
-                <li><a href="exp.html" class="nav-link active" role="menuitem">Experience</a></li>
+                <li><a href="experience.html" class="nav-link active" role="menuitem">Experience</a></li>
                 <li><a href="skills.html" class="nav-link" role="menuitem">Skills</a></li>
                 <li><a href="education.html" class="nav-link" role="menuitem">Education</a></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
+            </button>
+
+            <!-- Mobile hamburger placed at the right to match index.html -->
+            <button class="mobile-menu-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </nav>
@@ -901,7 +891,7 @@
             });
         }, observerOptions);
 
-        // Combined DOMContentLoaded: apply theme, set up animations and hamburger behavior
+        // Combined DOMContentLoaded: apply theme, set up animations and mobile menu behavior
         document.addEventListener('DOMContentLoaded', function() {
             // Apply saved theme on load
             const savedTheme = localStorage.getItem('theme');
@@ -919,45 +909,45 @@
                 observer.observe(el);
             });
 
-            // Hamburger menu behavior
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('nav-menu');
+            // Mobile menu behavior (matches index.html UX)
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
 
-            if (hamburger && navMenu) {
+            if (mobileToggle && navMenu) {
                 // Toggle open/close
-                hamburger.addEventListener('click', (e) => {
+                mobileToggle.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    const expanded = hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('show');
-                    hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    const expanded = mobileToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    mobileToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
                 });
 
                 // Close menu when a nav link is clicked (mobile)
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.addEventListener('click', () => {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('show');
-                        hamburger.setAttribute('aria-expanded', 'false');
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
                     });
                 });
 
                 // Close when clicking outside
                 document.addEventListener('click', (ev) => {
                     const target = ev.target;
-                    if (navMenu.classList.contains('show') && !navMenu.contains(target) && target !== hamburger && !hamburger.contains(target)) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('show');
-                        hamburger.setAttribute('aria-expanded', 'false');
+                    if (navMenu.classList.contains('active') && !navMenu.contains(target) && target !== mobileToggle && !mobileToggle.contains(target)) {
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
 
                 // Close on Escape key
                 document.addEventListener('keydown', (ev) => {
-                    if (ev.key === 'Escape' && navMenu.classList.contains('show')) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('show');
-                        hamburger.setAttribute('aria-expanded', 'false');
-                        hamburger.focus();
+                    if (ev.key === 'Escape' && navMenu.classList.contains('active')) {
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                        mobileToggle.focus();
                     }
                 });
             }
