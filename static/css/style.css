@@ -1323,10 +1323,11 @@ p {
     }
 }
 /* Show hamburger on mobile and enable menu */
-@media (max-width: 768px) {
-  .mobile-menu-toggle {
-    display: block !important;
-  }
+@media (max-width:768px){
+  .nav-menu { display:none !important; flex-direction:column; }
+  .mobile-menu-toggle { display:block !important; }
+}
+
   .nav-menu {
     display: none !important;
     flex-direction: column;
