@@ -510,17 +510,7 @@
                 <li><a href="skills.html" class="nav-link active">Skills</a></li>
                 <li><a href="education.html" class="nav-link">Education</a></li>
             </ul>
-           <button class="mobile-menu-toggle" onclick="(function(){
-  const m=document.querySelector('.nav-menu');
-  const i=this.querySelector('i');
-  if(m.style.display==='flex'){
-    m.style.display='none';
-    i.className='fas fa-bars';
-  } else {
-    m.style.display='flex';
-    i.className='fas fa-times';
-  }
-})()">
+           <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
   <i class="fas fa-bars"></i>
 </button>
 
