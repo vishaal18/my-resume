@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Skills - Vishal Pandey</title>
-    <meta name="description" content="Technical skills and expertise in automation, cloud infrastructure, monitoring, and Microsoft 365 administration.">
+    <title>Professional Experience - Vishal Pandey</title>
+    <meta name="description" content="Professional experience as Site Reliability Engineer at The Weather Network, Northern Lights College, Sherweb, and Ixia Solutions.">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
@@ -19,7 +19,6 @@
             --secondary-color: #1e40af;
             --accent-color: #3b82f6;
             --success-color: #10b981;
-            --warning-color: #f59e0b;
             --text-primary: #1f2937;
             --text-secondary: #6b7280;
             --bg-primary: #ffffff;
@@ -38,7 +37,6 @@
             --secondary-color: #60a5fa;
             --accent-color: #93c5fd;
             --success-color: #34d399;
-            --warning-color: #fbbf24;
             --text-primary: #f9fafb;
             --text-secondary: #d1d5db;
             --bg-primary: #111827;
@@ -179,170 +177,165 @@
             z-index: 1;
         }
 
-        /* Skills Overview */
-        .skills-overview {
-            padding: 4rem 0;
+        /* Timeline Section */
+        .timeline-section {
+            padding: 6rem 0;
             background: var(--bg-primary);
         }
 
-        .overview-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .stat-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            text-align: center;
-            transition: var(--transition);
-            border-top: 4px solid var(--primary-color);
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
         }
 
-        .stat-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .stat-card h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-card p {
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            padding: 6rem 0;
-            background: var(--bg-secondary);
-        }
-
-        .skill-category-section {
-            margin-bottom: 4rem;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border-color);
-        }
-
-        .category-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        .timeline-marker {
+            position: absolute;
+            left: 15px;
+            width: 30px;
+            height: 30px;
+            background: var(--bg-primary);
+            border: 3px solid var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 2;
+        }
+
+        .timeline-marker.current {
+            background: var(--primary-color);
             color: white;
-            font-size: 1.5rem;
+            box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 8px var(--primary-color);
+            animation: pulse 2s infinite;
         }
 
-        .category-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
+        .timeline-marker i {
+            font-size: 0.75rem;
         }
 
-        .category-header p {
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-item {
-            background: var(--bg-primary);
-            padding: 1.5rem;
+        .timeline-content {
+            background: var(--bg-secondary);
+            padding: 2rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow-md);
             transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
         }
 
-        .skill-item:hover {
-            transform: translateY(-3px);
+        .timeline-content:hover {
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+        .timeline-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
         }
 
-        .skill-header h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .company {
+            font-size: 1.125rem;
+            font-weight: 500;
             color: var(--text-primary);
         }
 
-        .skill-level {
+        .duration {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .current-badge {
+            display: inline-block;
+            background: var(--success-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .achievements h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .achievement-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .achievement-list i {
+            color: var(--primary-color);
+            margin-top: 0.125rem;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .tech-stack h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: var(--primary-color);
+            color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 1rem;
             font-size: 0.75rem;
             font-weight: 500;
         }
 
-        .skill-level.expert {
-            background: var(--success-color);
-            color: white;
-        }
-
-        .skill-level.intermediate {
-            background: var(--warning-color);
-            color: white;
-        }
-
-        .skill-bar {
-            background: var(--bg-secondary);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 4px;
-            transition: width 2s ease-out;
-            width: 0%;
-        }
-
-        .skill-item p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* Learning Section */
-        .learning-section {
+        /* Career Highlights */
+        .highlights-section {
             padding: 6rem 0;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
         }
 
         .section-title {
@@ -353,52 +346,40 @@
             color: var(--text-primary);
         }
 
-        .learning-grid {
+        .highlights-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .learning-card {
-            background: var(--bg-secondary);
+        .highlight-card {
+            background: var(--bg-primary);
             padding: 2rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow-md);
             text-align: center;
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
 
-        .learning-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-        }
-
-        .learning-card:hover {
+        .highlight-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
-        .learning-card i {
+        .highlight-card i {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
-        .learning-card h3 {
+        .highlight-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
-        .learning-card p {
+        .highlight-card p {
             color: var(--text-secondary);
             line-height: 1.6;
         }
@@ -451,6 +432,15 @@
             }
         }
 
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
@@ -461,8 +451,6 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
         .delay-600 { animation-delay: 0.6s; }
-        .delay-800 { animation-delay: 0.8s; }
-        .delay-1000 { animation-delay: 1.0s; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -474,18 +462,26 @@
                 font-size: 2rem;
             }
 
-            .category-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+            .timeline::before {
+                left: 15px;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .timeline-item {
+                padding-left: 50px;
             }
 
-            .overview-stats {
-                grid-template-columns: 1fr;
+            .timeline-marker {
+                left: 0;
+                width: 25px;
+                height: 25px;
+            }
+
+            .company-info {
+                gap: 0.5rem;
+            }
+
+            .tech-tags {
+                justify-content: center;
             }
 
             .footer-content {
@@ -506,8 +502,8 @@
             <a href="index.html" class="logo">VP</a>
             <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="exp.html" class="nav-link">Experience</a></li>
-                <li><a href="skills.html" class="nav-link active">Skills</a></li>
+                <li><a href="exp.html" class="nav-link active">Experience</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
                 <li><a href="education.html" class="nav-link">Education</a></li>
             </ul>
             <button class="theme-toggle" onclick="toggleTheme()">
@@ -519,280 +515,249 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title fade-in-up">Technical Skills & Expertise</h1>
-            <p class="page-subtitle fade-in-up delay-200">Comprehensive skillset in Site Reliability Engineering, Infrastructure Automation, and Cloud Technologies</p>
+            <h1 class="page-title fade-in-up">Professional Journey</h1>
+            <p class="page-subtitle fade-in-up delay-200">5+ years of experience in Site Reliability Engineering, Infrastructure Management, and System Administration</p>
         </div>
     </section>
 
-    <!-- Skills Overview -->
-    <section class="skills-overview">
+    <!-- Timeline Section -->
+    <section class="timeline-section">
         <div class="container">
-            <div class="overview-stats">
-                <div class="stat-card fade-in-up">
-                    <i class="fas fa-server"></i>
-                    <h3>100+</h3>
-                    <p>Servers Managed</p>
+            <div class="timeline">
+                
+                <!-- Current Role -->
+                <div class="timeline-item fade-in-up">
+                    <div class="timeline-marker current">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>System Administrator (SRE Focus)</h3>
+                            <div class="company-info">
+                                <span class="company">Pelmorex (The Weather Network)</span>
+                                <span class="duration">Nov 2022 – Present | Oakville, ON</span>
+                                <span class="current-badge">Current Role</span>
+                            </div>
+                        </div>
+                        <div class="achievements">
+                            <h4>Key Achievements:</h4>
+                            <ul class="achievement-list">
+                                <li>
+                                    <i class="fas fa-robot"></i>
+                                    <strong>Automated deployment workflows</strong> using Ansible and Terraform, reducing manual errors by <span class="highlight">15%</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-chart-line"></i>
+                                    <strong>Integrated Prometheus and Grafana</strong> for monitoring, reducing MTTR by <span class="highlight">10%</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-search"></i>
+                                    <strong>Implemented centralized logging (ELK stack)</strong>, accelerating troubleshooting by <span class="highlight">25%</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-shield-alt"></i>
+                                    <strong>Managed 100+ servers</strong> in hybrid environment, maintaining <span class="highlight">99.9% uptime</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <strong>Led 24/7 on-call rotations</strong> with blameless postmortems and continuous improvement
+                                </li>
+                                <li>
+                                    <i class="fas fa-database"></i>
+                                    <strong>Optimized backup/DR strategies</strong> using Veeam for reliable rollbacks
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <h4>Technologies Used:</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Ansible</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">Prometheus</span>
+                                <span class="tech-tag">Grafana</span>
+                                <span class="tech-tag">ELK Stack</span>
+                                <span class="tech-tag">Veeam</span>
+                                <span class="tech-tag">Linux</span>
+                                <span class="tech-tag">Windows Server</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="stat-card fade-in-up delay-200">
-                    <i class="fas fa-clock"></i>
-                    <h3>5+</h3>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card fade-in-up delay-400">
-                    <i class="fas fa-tools"></i>
-                    <h3>20+</h3>
-                    <p>Technologies Mastered</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Categories -->
-    <section class="skills-section">
-        <div class="container">
-            
-            <!-- Automation & Infrastructure as Code -->
-            <div class="skill-category-section fade-in-up">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-robot"></i>
+                <!-- Northern Lights College -->
+                <div class="timeline-item fade-in-up delay-200">
+                    <div class="timeline-marker">
+                        <i class="fas fa-network-wired"></i>
                     </div>
-                    <div>
-                        <h2>Automation & Infrastructure as Code</h2>
-                        <p>Expertise in automating deployment workflows and managing infrastructure through code</p>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior Network Administrator</h3>
+                            <div class="company-info">
+                                <span class="company">Northern Lights College</span>
+                                <span class="duration">Sep 2021 – Nov 2022 | Fort St John, BC</span>
+                            </div>
+                        </div>
+                        <div class="achievements">
+                            <h4>Key Responsibilities:</h4>
+                            <ul class="achievement-list">
+                                <li>
+                                    <i class="fas fa-network-wired"></i>
+                                    <strong>Designed and maintained</strong> enterprise network infrastructure including firewalls, VPNs, and load balancers
+                                </li>
+                                <li>
+                                    <i class="fas fa-server"></i>
+                                    <strong>Led infrastructure changes</strong> with minimal downtime for Windows Server environments
+                                </li>
+                                <li>
+                                    <i class="fab fa-microsoft"></i>
+                                    <strong>Managed Exchange and M365 environment</strong> alongside Active Directory and IAM tasks
+                                </li>
+                                <li>
+                                    <i class="fas fa-shield-alt"></i>
+                                    <strong>Implemented IAM principles</strong> including MFA and role-based access control
+                                </li>
+                                <li>
+                                    <i class="fas fa-file-alt"></i>
+                                    <strong>Authored technical documentation</strong> and network diagrams for team collaboration
+                                </li>
+                                <li>
+                                    <i class="fas fa-code"></i>
+                                    <strong>Developed PowerShell scripts</strong> for routine administration tasks
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <h4>Technologies Used:</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Exchange Online</span>
+                                <span class="tech-tag">Microsoft 365</span>
+                                <span class="tech-tag">Active Directory</span>
+                                <span class="tech-tag">PowerShell</span>
+                                <span class="tech-tag">Windows Server</span>
+                                <span class="tech-tag">Firewalls</span>
+                                <span class="tech-tag">VPNs</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Ansible</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                        <p>Configuration management, deployment automation, and orchestration of complex workflows</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Terraform</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <p>Infrastructure provisioning and management across cloud and on-premises environments</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>PowerShell</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="95"></div>
-                        </div>
-                        <p>Advanced scripting for Windows automation and Microsoft 365 administration</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Python</h3>
-                            <span class="skill-level intermediate">Learning</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="60"></div>
-                        </div>
-                        <p>Scripting, automation, and integration with monitoring and cloud services</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Cloud & Infrastructure -->
-            <div class="skill-category-section fade-in-up delay-200">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div>
-                        <h2>Cloud & Infrastructure</h2>
-                        <p>Managing hybrid cloud environments and containerized applications</p>
-                    </div>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>AWS</h3>
-                            <span class="skill-level intermediate">Learning</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="65"></div>
-                        </div>
-                        <p>EC2, S3, CloudWatch, and other core services for cloud infrastructure</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Kubernetes</h3>
-                            <span class="skill-level intermediate">Intermediate</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
-                        </div>
-                        <p>Container orchestration, scaling, and management of microservices</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Docker</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <p>Containerization, image management, and deployment optimization</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Proxmox</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                        <p>Virtualization platform management and infrastructure optimization</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Monitoring & Observability -->
-            <div class="skill-category-section fade-in-up delay-400">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div>
-                        <h2>Monitoring & Observability</h2>
-                        <p>Comprehensive monitoring solutions for proactive system health management</p>
-                    </div>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Prometheus</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                        <p>Metrics collection, alerting, and time-series database management</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Grafana</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="88"></div>
-                        </div>
-                        <p>Dashboard creation, visualization, and monitoring analytics</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>ELK Stack</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <p>Centralized logging, log analysis, and troubleshooting acceleration</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Zabbix</h3>
-                            <span class="skill-level intermediate">Intermediate</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="70"></div>
-                        </div>
-                        <p>Network monitoring, server health checks, and alerting systems</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Microsoft 365 & Collaboration -->
-            <div class="skill-category-section fade-in-up delay-600">
-                <div class="category-header">
-                    <div class="category-icon">
+                <!-- Sherweb -->
+                <div class="timeline-item fade-in-up delay-400">
+                    <div class="timeline-marker">
                         <i class="fab fa-microsoft"></i>
                     </div>
-                    <div>
-                        <h2>Microsoft 365 & Collaboration</h2>
-                        <p>Deep expertise in Microsoft cloud services and enterprise collaboration tools</p>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Microsoft 365 Premier Technical Analyst</h3>
+                            <div class="company-info">
+                                <span class="company">Sherweb</span>
+                                <span class="duration">Aug 2020 – Sep 2021 | Sherbrooke, QC</span>
+                            </div>
+                        </div>
+                        <div class="achievements">
+                            <h4>Key Achievements:</h4>
+                            <ul class="achievement-list">
+                                <li>
+                                    <i class="fas fa-headset"></i>
+                                    <strong>Provided Tier 3 support</strong> for Microsoft 365 services including Exchange, Teams, OneDrive
+                                </li>
+                                <li>
+                                    <i class="fas fa-robot"></i>
+                                    <strong>Automated operational tasks</strong> with PowerShell, reducing manual effort by <span class="highlight">20%</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <strong>Managed workflows using ServiceNow</strong>, escalating critical issues promptly
+                                </li>
+                                <li>
+                                    <i class="fas fa-database"></i>
+                                    <strong>Delivered backup and recovery support</strong> for Exchange Online and SharePoint
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <strong>Achieved 90% CSAT</strong> through effective communication and problem resolution
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-stack">
+                            <h4>Technologies Used:</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Exchange Online</span>
+                                <span class="tech-tag">Microsoft Teams</span>
+                                <span class="tech-tag">OneDrive</span>
+                                <span class="tech-tag">SharePoint</span>
+                                <span class="tech-tag">Azure AD</span>
+                                <span class="tech-tag">PowerShell</span>
+                                <span class="tech-tag">ServiceNow</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Exchange Online</h3>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="95"></div>
-                        </div>
-                        <p>Email administration, migration, and hybrid deployments</p>
+
+                <!-- Ixia Solutions -->
+                <div class="timeline-item fade-in-up delay-600">
+                    <div class="timeline-marker">
+                        <i class="fas fa-database"></i>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Microsoft Teams</h3>
-                            <span class="skill-level expert">Expert</span>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Database Administrator</h3>
+                            <div class="company-info">
+                                <span class="company">Ixia Solutions</span>
+                                <span class="duration">Apr 2016 – Apr 2017 | Mumbai, India</span>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
+                        <div class="achievements">
+                            <h4>Key Responsibilities:</h4>
+                            <ul class="achievement-list">
+                                <li>
+                                    <i class="fas fa-server"></i>
+                                    <strong>Administered SQL Server production environments</strong> with comprehensive maintenance plans
+                                </li>
+                                <li>
+                                    <i class="fas fa-database"></i>
+                                    <strong>Managed backups and restores</strong> using native SQL tools and Windows Server integration
+                                </li>
+                                <li>
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <strong>Performance tuning</strong> using SQL Profiler and PerfMon utilities
+                                </li>
+                            </ul>
                         </div>
-                        <p>Teams deployment, governance, and integration management</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>Endpoint Manager</h3>
-                            <span class="skill-level expert">Expert</span>
+                        <div class="tech-stack">
+                            <h4>Technologies Used:</h4>
+                            <div class="tech-tags">
+                                <span class="tech-tag">SQL Server 2012+</span>
+                                <span class="tech-tag">Windows Server</span>
+                                <span class="tech-tag">SQL Profiler</span>
+                                <span class="tech-tag">PerfMon</span>
+                            </div>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <p>Device management, policy enforcement, and security compliance</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h3>SharePoint Online</h3>
-                            <span class="skill-level intermediate">Intermediate</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
-                        </div>
-                        <p>Content management, site administration, and backup strategies</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Continuous Learning -->
-    <section class="learning-section">
+    <!-- Career Highlights -->
+    <section class="highlights-section">
         <div class="container">
-            <h2 class="section-title">Continuous Learning</h2>
-            <div class="learning-grid">
-                <div class="learning-card fade-in-up">
-                    <i class="fab fa-aws"></i>
-                    <h3>AWS Certification</h3>
-                    <p>Currently pursuing AWS Solutions Architect certification to expand cloud expertise and validate skills in cloud architecture design.</p>
+            <h2 class="section-title">Career Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card fade-in-up">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Performance Optimization</h3>
+                    <p>Consistently improved system performance and reliability across all roles, achieving significant reductions in downtime and faster incident resolution.</p>
                 </div>
-                <div class="learning-card fade-in-up delay-200">
-                    <i class="fab fa-python"></i>
-                    <h3>Python Development</h3>
-                    <p>Enhancing Python skills for automation, monitoring, and cloud integration to build more sophisticated SRE tooling.</p>
+                <div class="highlight-card fade-in-up delay-200">
+                    <i class="fas fa-users"></i>
+                    <h3>Cross-functional Collaboration</h3>
+                    <p>Proven ability to work with development teams, stakeholders, and end-users to deliver reliable solutions that meet business requirements.</p>
                 </div>
-                <div class="learning-card fade-in-up delay-400">
-                    <i class="fas fa-dharmachakra"></i>
-                    <h3>Advanced Kubernetes</h3>
-                    <p>Deepening knowledge in Kubernetes administration, service mesh technologies, and cloud-native application deployment.</p>
+                <div class="highlight-card fade-in-up delay-400">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Continuous Learning</h3>
+                    <p>Constantly evolving skillset with emerging technologies like Kubernetes, cloud platforms, and modern monitoring solutions.</p>
                 </div>
             </div>
         </div>
@@ -853,49 +818,28 @@
             }
         });
 
-        // Animate skill progress bars when they come into view
+        // Animate elements when they come into view
         const observerOptions = {
-            threshold: 0.5,
+            threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const progressBar = entry.target.querySelector('.skill-progress');
-                    if (progressBar) {
-                        const progress = progressBar.getAttribute('data-progress');
-                        setTimeout(() => {
-                            progressBar.style.width = progress + '%';
-                        }, 200);
-                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        // Observe all skill items
+        // Observe all fade-in elements
         document.addEventListener('DOMContentLoaded', () => {
-            const skillItems = document.querySelectorAll('.skill-item');
-            skillItems.forEach(item => {
-                observer.observe(item);
-            });
-
-            // Animate fade-in elements
             const fadeElements = document.querySelectorAll('.fade-in-up');
             fadeElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
-                
-                const fadeObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                fadeObserver.observe(el);
+                observer.observe(el);
             });
         });
     </script>
