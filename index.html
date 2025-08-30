@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vishal Pandey • SRE Portfolio</title>
-  <!-- Point to the CSS in your static folder -->
-  <link rel="stylesheet" href="static/css/modern-portfolio.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vishal Pandey • Site Reliability Engineer</title>
+  <link rel="stylesheet" href="static/css/modern-portfolio.css">
 </head>
 <body data-theme="light">
 
@@ -14,10 +13,11 @@
     <div class="container header-inner">
       <a href="#home" class="logo">Vishal Pandey</a>
       <nav class="nav">
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <button class="btn-resume">Resume</button>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="static/files/my_resume.pdf" target="_blank" class="nav-link">Resume</a>
         <button class="theme-switch" aria-label="Toggle theme">🌓</button>
         <button class="menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
@@ -27,14 +27,15 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="container hero-content">
+      <img src="static/images/photo.jpg" alt="Vishal Pandey" class="hero-img">
       <h1>Hi, I’m Vishal Pandey</h1>
-      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems.</p>
+      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems. I’m a Site Reliability Engineer passionate about building resilient, scalable infrastructure.</p>
       <a href="#experience" class="btn-primary">Explore My Work</a>
     </div>
     <div class="hero-bg"></div>
   </section>
 
-  <!-- Experience -->
+  <!-- Experience Section -->
   <section id="experience" class="section cards">
     <div class="container">
       <h2>Experience</h2>
@@ -42,82 +43,75 @@
         <div class="card">
           <i class="icon fas fa-server"></i>
           <h3>Site Reliability Engineering</h3>
-          <p>5+ years building resilient, scalable infrastructure with 99.9% uptime SLAs.</p>
+          <p>5+ years of experience in Site Reliability Engineering, Infrastructure Management, and System Administration.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-chart-line"></i>
-          <h3>Performance Optimization</h3>
-          <p>Reduced downtime by 50% and accelerated incident resolution across platforms.</p>
+          <h3>Performance & Reliability</h3>
+          <p>Consistently improved system performance and reliability, reducing downtime and accelerating incident resolution.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-cloud"></i>
           <h3>Cloud & Kubernetes</h3>
-          <p>Designed and managed containerized microservices on AWS and Kubernetes.</p>
+          <p>Designed and managed containerized applications on AWS and Kubernetes, ensuring high availability and scalability.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-users"></i>
-          <h3>Collaborative Delivery</h3>
-          <p>Partnered with dev teams to integrate automated pipelines and monitoring.</p>
+          <h3>Collaboration</h3>
+          <p>Worked with development teams, stakeholders, and end-users to deliver reliable solutions that meet business requirements.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills Section -->
   <section id="skills" class="section skills">
     <div class="container">
       <h2>Skills</h2>
       <ul class="skill-list">
-        <li><i class="fab fa-aws"></i>AWS EC2 & S3</li>
+        <li><i class="fab fa-aws"></i>AWS EC2, S3, CloudWatch</li>
         <li><i class="fab fa-docker"></i>Docker & Kubernetes</li>
         <li><i class="fas fa-cogs"></i>Ansible & Terraform</li>
         <li><i class="fas fa-sync-alt"></i>CI/CD Pipelines</li>
         <li><i class="fas fa-chart-pie"></i>Prometheus & Grafana</li>
         <li><i class="fas fa-file-alt"></i>ELK Stack</li>
-        <li><i class="fas fa-code"></i>Python & Scripting</li>
-        <li><i class="fas fa-shield-alt"></i>DR Automation</li>
+        <li><i class="fas fa-code"></i>Python & Windows Scripting</li>
+        <li><i class="fas fa-shield-alt"></i>Disaster Recovery Automation</li>
       </ul>
+      <p class="mt-6">Currently pursuing AWS Solutions Architect Associate; enhancing Python for automation, monitoring, and cloud integration; deepening Kubernetes administration and service mesh expertise.</p>
     </div>
   </section>
 
-  <!-- Education -->
+  <!-- Education & Projects Section -->
   <section id="education" class="section cards alternate">
     <div class="container">
       <h2>Education & Projects</h2>
       <div class="card-grid">
         <div class="card">
           <i class="icon fas fa-university"></i>
-          <h3>University of Regina</h3>
-          <p>Advanced studies in distributed computing & scalable architecture.</p>
+          <h3>University of Regina (2017–2019)</h3>
+          <p>Advanced studies in computer systems, distributed computing, and scalable architecture design.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-code-branch"></i>
           <h3>Asset Management System</h3>
-          <p>Automated tracking reduced process time by 60% and improved audits.</p>
+          <p>Built a web-based asset tracking system, reducing tracking time by 60% and improving audit compliance.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-graduation-cap"></i>
-          <h3>Mumbai University</h3>
-          <p>Bachelor’s in Computer Networks, Databases & IT Infrastructure.</p>
+          <h3>Mumbai University (2013–2016)</h3>
+          <p>Undergraduate program covering networks, databases, software development, and IT infrastructure management.</p>
         </div>
         <div class="card">
           <i class="icon fas fa-network-wired"></i>
-          <h3>Monitoring Framework</h3>
-          <p>Prometheus + Grafana + Slack alerts cut response times by 40%.</p>
+          <h3>Monitoring & Automation</h3>
+          <p>Developed Python & Prometheus scripts integrated with Grafana and Slack, cutting incident response time by 40%.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Resume Modal -->
-  <div class="modal" id="resumeModal">
-    <div class="modal-content">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <iframe src="static/files/my_resume.pdf" frameborder="0"></iframe>
-    </div>
-  </div>
-
-  <!-- Back to Top -->
+  <!-- Back to Top Button -->
   <button id="backTop" aria-label="Back to top">↑</button>
 
   <!-- Scripts -->
@@ -127,17 +121,26 @@
           nav = document.querySelector('.nav'),
           themeBtn = document.querySelector('.theme-switch'),
           body = document.body,
-          resumeBtn = document.querySelector('.btn-resume'),
-          modal = document.getElementById('resumeModal'),
-          closeModal = document.querySelector('.modal-close'),
-          backTop = document.getElementById('backTop');
+          backTop = document.getElementById('backTop'),
+          navLinks = document.querySelectorAll('.nav-link'),
+          sections = document.querySelectorAll('section');
 
     menuBtn.onclick = () => nav.classList.toggle('open');
-    themeBtn.onclick = () => body.setAttribute('data-theme', body.getAttribute('data-theme')==='light'?'dark':'light');
-    resumeBtn.onclick = () => modal.classList.add('open');
-    closeModal.onclick = () => modal.classList.remove('open');
-    window.onscroll = () => backTop.classList.toggle('visible', window.scrollY > 300);
-    backTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+    themeBtn.onclick = () => body.setAttribute('data-theme',
+      body.getAttribute('data-theme')==='light'?'dark':'light'
+    );
+    window.onscroll = () => {
+      backTop.classList.toggle('visible', window.scrollY > 300);
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+      });
+      navLinks.forEach(link =>
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`)
+      );
+    };
+    backTop.onclick = () =>
+      window.scrollTo({top: 0, behavior: 'smooth'});
   </script>
 </body>
 </html>
