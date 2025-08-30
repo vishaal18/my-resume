@@ -1,111 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vishal Pandey – Site Reliability Engineer</title>
-  <link rel="stylesheet" href="modern-portfolio.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vishal Pandey • SRE Portfolio</title>
+  <link rel="stylesheet" href="modern-portfolio.css">
 </head>
 <body data-theme="light">
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
       <a href="#home" class="logo">Vishal Pandey</a>
-      <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-      <ul class="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="static/files/my_resume.pdf" target="_blank" class="nav-link">Resume</a></li>
-      </ul>
+      <nav class="nav">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <button class="btn-resume">Resume</button>
+        <button class="theme-switch" aria-label="Toggle theme">🌓</button>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Home Section (Hero) -->
-    <section id="home" class="hero">
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
       <h1>Hi, I’m Vishal Pandey</h1>
-      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems. I’m a Site Reliability Engineer passionate about building resilient, scalable infrastructure.</p>
-      <img src="static/images/photo.jpg" alt="Vishal Pandey" class="hero-img" />
-      <div class="svg-divider">
-        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="var(--bg-secondary)" />
-        </svg>
-      </div>
-    </section>
+      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems.</p>
+      <a href="#experience" class="btn-primary">Explore My Work</a>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="card-section">
+  <!-- Experience -->
+  <section id="experience" class="section cards">
+    <div class="container">
       <h2>Experience</h2>
-      <ul class="list-icons">
-        <li><i class="icon fas fa-server"></i> 5+ years in Site Reliability Engineering, Infrastructure Management, and System Administration.</li>
-        <li><i class="icon fas fa-chart-line"></i> Reduced downtime and accelerated incident resolution across roles.</li>
-        <li><i class="icon fas fa-users"></i> Collaborated with dev teams and stakeholders to deliver reliable solutions.</li>
-        <li><i class="icon fas fa-cloud"></i> Evolved expertise with Kubernetes, AWS, and modern monitoring.</li>
-      </ul>
-    </section>
+      <div class="card-grid">
+        <div class="card">
+          <i class="icon fas fa-server"></i>
+          <h3>Site Reliability Engineering</h3>
+          <p>5+ years building resilient, scalable infrastructure with 99.9% uptime SLAs.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-chart-line"></i>
+          <h3>Performance Optimization</h3>
+          <p>Reduced downtime by 50% and accelerated incident resolution across multiple platforms.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-cloud"></i>
+          <h3>Cloud & Kubernetes</h3>
+          <p>Designed and managed containerized microservices on AWS and Kubernetes clusters.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-users"></i>
+          <h3>Collaborative Delivery</h3>
+          <p>Partnered with dev teams to integrate automated pipelines and monitoring solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="card-section">
+  <!-- Skills -->
+  <section id="skills" class="section skills">
+    <div class="container">
       <h2>Skills</h2>
-      <ul class="grid skills-grid">
-        <li><i class="icon fas fa-cogs"></i> Ansible & Terraform</li>
-        <li><i class="icon fas fa-sync-alt"></i> CI/CD Pipelines</li>
-        <li><i class="icon fab fa-aws"></i> AWS EC2, S3, CloudWatch</i></li>
-        <li><i class="icon fab fa-docker"></i> Docker & Kubernetes</li>
-        <li><i class="icon fas fa-chart-pie"></i> Prometheus & Grafana</li>
-        <li><i class="icon fas fa-file-alt"></i> ELK Stack</li>
-        <li><i class="icon fas fa-code"></i> Python & Windows Scripting</li>
-        <li><i class="icon fas fa-shield-alt"></i> Disaster Recovery Automation</li>
+      <ul class="skill-list">
+        <li><i class="fab fa-aws"></i>AWS EC2 & S3</li>
+        <li><i class="fab fa-docker"></i>Docker & Kubernetes</li>
+        <li><i class="fas fa-cogs"></i>Ansible & Terraform</li>
+        <li><i class="fas fa-sync-alt"></i>CI/CD Pipelines</li>
+        <li><i class="fas fa-chart-pie"></i>Prometheus & Grafana</li>
+        <li><i class="fas fa-file-alt"></i>ELK Stack</li>
+        <li><i class="fas fa-code"></i>Python & Scripting</li>
+        <li><i class="fas fa-shield-alt"></i>DR Automation</li>
       </ul>
-      <p class="mt-8">Pursuing AWS Solutions Architect Associate; enhancing Python for SRE tooling; deepening Kubernetes and service-mesh knowledge.</p>
-    </section>
+    </div>
+  </section>
 
-    <!-- Education & Projects Section -->
-    <section id="education" class="card-section">
+  <!-- Education -->
+  <section id="education" class="section cards alternate">
+    <div class="container">
       <h2>Education & Projects</h2>
-      <h3>University of Regina (2017–2019)</h3>
-      <p>Advanced studies in distributed computing and scalable architecture design.</p>
-      <h3 class="mt-6">Mumbai University (2013–2016)</h3>
-      <p>Undergraduate in computer networks, database systems, and IT infrastructure.</p>
+      <div class="card-grid">
+        <div class="card">
+          <i class="icon fas fa-university"></i>
+          <h3>University of Regina</h3>
+          <p>Advanced studies in distributed computing & scalable architecture.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-code-branch"></i>
+          <h3>Asset Management System</h3>
+          <p>Automated tracking reduced process time by 60% and improved audits.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-graduation-cap"></i>
+          <h3>Mumbai University</h3>
+          <p>Bachelor’s in Computer Networks, Databases & IT Infrastructure.</p>
+        </div>
+        <div class="card">
+          <i class="icon fas fa-network-wired"></i>
+          <h3>Monitoring Framework</h3>
+          <p>Prometheus + Grafana + Slack alerts cut response times by 40%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <h3 class="mt-8">Key Projects</h3>
-      <ul class="list-icons mt-4">
-        <li><i class="icon fas fa-tools"></i> <strong>Asset Management System:</strong> Automated web-based asset tracking, cutting tracking time by 60%.</li>
-        <li><i class="icon fas fa-bell"></i> <strong>Monitoring Scripts:</strong> Python + Prometheus + Grafana + Slack; 40% faster incident response.</li>
-        <li><i class="icon fas fa-box"></i> <strong>CI/CD & Containers:</strong> Docker & Kubernetes pipelines—99.9% success, 50% faster releases.</li>
-        <li><i class="icon fas fa-database"></i> <strong>Backup & DR Automation:</strong> Veeam workflows reducing failures to &lt;1% and RTO by 70%.</li>
-        <li><i class="icon fas fa-shield-virus"></i> <strong>Compliance Dashboard:</strong> Real-time security metrics; 90% improved visibility.</li>
-      </ul>
-    </section>
-  </main>
+  <!-- Resume Modal -->
+  <div class="modal" id="resumeModal">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <iframe src="static/files/my_resume.pdf" frameborder="0"></iframe>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="backTop" aria-label="Back to top">↑</button>
 
   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
   <script>
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
-    const sections = document.querySelectorAll('section'),
-          navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        const top = window.scrollY, offset = sec.offsetTop - 100;
-        if (top >= offset) current = sec.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-      });
-    });
-    document.querySelector('.theme-toggle').addEventListener('click', () => {
-      const body = document.body;
-      const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      body.setAttribute('data-theme', theme);
-    });
+    const menuBtn = document.querySelector('.menu-toggle'),
+          nav = document.querySelector('.nav'),
+          themeBtn = document.querySelector('.theme-switch'),
+          body = document.body,
+          resumeBtn = document.querySelector('.btn-resume'),
+          modal = document.getElementById('resumeModal'),
+          closeModal = document.querySelector('.modal-close'),
+          backTop = document.getElementById('backTop');
+
+    menuBtn.onclick = () => nav.classList.toggle('open');
+    themeBtn.onclick = () => body.setAttribute('data-theme', body.getAttribute('data-theme')==='light'?'dark':'light');
+    resumeBtn.onclick = () => modal.classList.add('open');
+    closeModal.onclick = () => modal.classList.remove('open');
+    window.onscroll = () => backTop.classList.toggle('visible', window.scrollY > 300);
+    backTop.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
   </script>
-  <!-- Font Awesome CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-pQ2f4bH1uG+YQmDFLR3jPh0R6QbTjkgWi1Eb+fX/2eIUiRX1z4ksaN5aILg8KpfC9mOCh0mYm5YjVmYQ7hX6UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
