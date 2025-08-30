@@ -1,192 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Pandey | Site Reliability Engineer</title>
-    <meta name="description" content="Site Reliability Engineer with 5+ years of experience in automation, infrastructure management, and ensuring 99.9% uptime for mission-critical systems.">
-    
-    <!-- Stylesheets -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vishal Pandey | Site Reliability Engineer</title>
+  <meta name="description" content="Site Reliability Engineer with 5+ years of experience in automation, infrastructure management, and ensuring 99.9% uptime for mission-critical systems.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">VP</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="experience.html" class="nav-link">Experience</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="education.html" class="nav-link">Education</a></li>
-            </ul>
-            <div class="nav-right">
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">VP</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="education.html" class="nav-link">Education</a></li>
+      </ul>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i id="theme-icon" class="fas fa-moon"></i>
+      </button>
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <section class="page-header fade-in-up">
+    <div class="container">
+      <h1>Site Reliability Engineer</h1>
+      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems</p>
+    </div>
+  </section>
+
+  <section class="hero container">
+    <div class="hero-content fade-in-up delay-200">
+      <div class="metrics">
+        <div class="metric">
+          <span class="metric-number">15%</span>
+          <span class="metric-label">Error Reduction</span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="fade-in-up">Site Reliability Engineer</h1>
-                <p class="hero-subtitle fade-in-up delay-200">5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems</p>
-                
-                <div class="metrics fade-in-up delay-400">
-                    <div class="metric">
-                        <span class="metric-number">15%</span>
-                        <span class="metric-label">Error Reduction</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-number">25%</span>
-                        <span class="metric-label">Faster Resolution</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-number">99.9%</span>
-                        <span class="metric-label">System Uptime</span>
-                    </div>
-                </div>
-
-                <div class="cta-buttons fade-in-up delay-600">
-                    <a href="static/files/resume.pdf" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-download"></i>
-                        Download Resume
-                    </a>
-                    <a href="mailto:zak.vishal@gmail.com" class="btn btn-outline">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                </div>
-            </div>
-            
-            <div class="hero-image fade-in-up delay-300">
-                <img src="static/images/photo.jpg" alt="Vishal Pandey" class="profile-photo" width="300" height="300">
-            </div>
+        <div class="metric">
+          <span class="metric-number">25%</span>
+          <span class="metric-label">Faster Resolution</span>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            
-            <div class="about-grid">
-                <div class="about-info card">
-                    <div class="about-text">
-                        <p>Hi, I'm <strong>Vishal Pandey</strong>, a Site Reliability Engineer with a passion for building resilient, scalable infrastructure. I specialize in automation, monitoring, and ensuring high availability for complex distributed systems.</p>
-                        <p>Currently at <strong>Pelmorex (The Weather Network)</strong>, I manage 100+ servers and lead initiatives that have reduced manual errors by 15% and improved troubleshooting speed by 25%.</p>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Toronto, ON</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>zak.vishal@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>306-209-4109</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://www.linkedin.com/in/vispan" target="_blank">LinkedIn Profile</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-preview">
-                    <div class="skill-category card">
-                        <h3><i class="fas fa-cloud"></i> Infrastructure & Cloud</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Proxmox</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category card">
-                        <h3><i class="fas fa-cogs"></i> Automation & IaC</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Ansible</span>
-                            <span class="skill-tag">Terraform</span>
-                            <span class="skill-tag">PowerShell</span>
-                            <span class="skill-tag">Python</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category card">
-                        <h3><i class="fas fa-chart-line"></i> Monitoring</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Prometheus</span>
-                            <span class="skill-tag">Grafana</span>
-                            <span class="skill-tag">ELK Stack</span>
-                            <span class="skill-tag">Zabbix</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category card">
-                        <h3><i class="fab fa-microsoft"></i> Microsoft 365</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Exchange Online</span>
-                            <span class="skill-tag">Teams</span>
-                            <span class="skill-tag">OneDrive</span>
-                            <span class="skill-tag">Endpoint Manager</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="metric">
+          <span class="metric-number">99.9%</span>
+          <span class="metric-label">System Uptime</span>
         </div>
-    </section>
+      </div>
+      <div class="cta-buttons">
+        <a href="static/files/resume.pdf" class="btn btn-primary" target="_blank">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+        <a href="mailto:zak.vishal@gmail.com" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+      </div>
+    </div>
+    <div class="hero-image fade-in-up delay-400">
+      <img src="static/images/photo.jpg" alt="Vishal Pandey" class="profile-photo" width="300" height="300">
+    </div>
+  </section>
 
-    <!-- Quick Links Section -->
-    <section class="quick-links">
-        <div class="container">
-            <h2 class="section-title">Explore My Work</h2>
-            <div class="links-grid">
-                <a href="exp.html" class="link-card card">
-                    <i class="fas fa-briefcase"></i>
-                    <h3>Professional Experience</h3>
-                    <p>5+ years across Weather Network, Northern Lights College, and more</p>
-                </a>
-                <a href="skills.html" class="link-card card">
-                    <i class="fas fa-tools"></i>
-                    <h3>Technical Skills</h3>
-                    <p>Deep dive into my automation, monitoring, and cloud expertise</p>
-                </a>
-                <a href="education.html" class="link-card card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Education & Projects</h3>
-                    <p>Academic background and key projects that shaped my career</p>
-                </a>
-            </div>
+  <section class="about container fade-in-up delay-600">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-info card">
+        <p>Hi, I'm <strong>Vishal Pandey</strong>, a Site Reliability Engineer with a passion for building resilient, scalable infrastructure. I specialize in automation, monitoring, and ensuring high availability for complex distributed systems.</p>
+        <p>Currently at <strong>Pelmorex (The Weather Network)</strong>, I manage 100+ servers and lead initiatives that have reduced manual errors by 15% and improved troubleshooting speed by 25%.</p>
+      </div>
+      <div class="skills-preview">
+        <div class="skill-category card">
+          <h3><i class="fas fa-cloud"></i> Infrastructure & Cloud</h3>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Proxmox</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Vishal Pandey. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/vispan" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:zak.vishal@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
+        <div class="skill-category card">
+          <h3><i class="fas fa-cogs"></i> Automation & IaC</h3>
+          <span class="skill-tag">Ansible</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">PowerShell</span>
+          <span class="skill-tag">Python</span>
         </div>
-    </footer>
+        <div class="skill-category card">
+          <h3><i class="fas fa-chart-line"></i> Monitoring</h3>
+          <span class="skill-tag">Prometheus</span>
+          <span class="skill-tag">Grafana</span>
+          <span class="skill-tag">ELK Stack</span>
+          <span class="skill-tag">Zabbix</span>
+        </div>
+        <div class="skill-category card">
+          <h3><i class="fab fa-microsoft"></i> Microsoft 365</h3>
+          <span class="skill-tag">Exchange Online</span>
+          <span class="skill-tag">Teams</span>
+          <span class="skill-tag">OneDrive</span>
+          <span class="skill-tag">Endpoint Manager</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="static/js/main.js"></script>
+  <section class="quick-links container fade-in-up delay-800">
+    <h2 class="section-title">Explore My Work</h2>
+    <div class="links-grid">
+      <a href="experience.html" class="link-card card">
+        <i class="fas fa-briefcase"></i>
+        <h3>Professional Experience</h3>
+      </a>
+      <a href="skills.html" class="link-card card">
+        <i class="fas fa-tools"></i>
+        <h3>Technical Skills</h3>
+      </a>
+      <a href="education.html" class="link-card card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Education & Projects</h3>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer fade-in-up delay-1000">
+    <div class="container">
+      <p>&copy; 2025 Vishal Pandey. All rights reserved.</p>
+      <a href="mailto:zak.vishal@gmail.com" class="footer-link"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/vispan" target="_blank" class="footer-link"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </footer>
 </body>
 </html>
