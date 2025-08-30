@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Skills - Vishal Pandey</title>
     <meta name="description" content="Technical skills and expertise in automation, cloud infrastructure, monitoring, and Microsoft 365 administration.">
-
+    
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-
+    
     <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <style>
         :root {
             --primary-color: #2563eb;
@@ -32,6 +32,7 @@
             --radius: 0.5rem;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         [data-theme="dark"] {
             --primary-color: #3b82f6;
             --secondary-color: #60a5fa;
@@ -45,11 +46,13 @@
             --bg-gradient: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
             --border-color: #374151;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -58,6 +61,7 @@
             transition: var(--transition);
             padding-top: 4rem;
         }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -75,9 +79,11 @@
             z-index: 1000;
             transition: var(--transition);
         }
+
         [data-theme="dark"] .navbar {
             background: rgba(17, 24, 39, 0.95);
         }
+
         .nav-container {
             max-width: 1280px;
             margin: 0 auto;
@@ -86,19 +92,21 @@
             justify-content: space-between;
             align-items: center;
             height: 4rem;
-            position: relative;
         }
+
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
         }
+
         .nav-menu {
             display: flex;
             list-style: none;
             gap: 2rem;
         }
+
         .nav-link {
             color: var(--text-primary);
             text-decoration: none;
@@ -106,10 +114,12 @@
             position: relative;
             transition: var(--transition);
         }
+
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary-color);
         }
+
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -119,6 +129,7 @@
             height: 2px;
             background: var(--primary-color);
         }
+
         .theme-toggle {
             background: none;
             border: none;
@@ -127,53 +138,9 @@
             color: var(--text-primary);
             transition: var(--transition);
         }
+
         .theme-toggle:hover {
             color: var(--primary-color);
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 24px;
-            height: 18px;
-            cursor: pointer;
-        }
-        .hamburger span {
-            display: block;
-            height: 3px;
-            background: var(--text-primary);
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(7.5px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-7.5px) rotate(-45deg);
-        }
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .nav-menu.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 4rem;
-                left: 0;
-                width: 100%;
-                background: var(--bg-primary);
-                border-top: 1px solid var(--border-color);
-                padding: 1rem 0;
-            }
         }
 
         /* Page Header */
@@ -185,13 +152,18 @@
             position: relative;
             overflow: hidden;
         }
+
         .page-header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
         }
+
         .page-title {
             font-size: 3rem;
             font-weight: 700;
@@ -199,6 +171,7 @@
             position: relative;
             z-index: 1;
         }
+
         .page-subtitle {
             font-size: 1.25rem;
             opacity: 0.9;
@@ -211,11 +184,13 @@
             padding: 4rem 0;
             background: var(--bg-primary);
         }
+
         .overview-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
+
         .stat-card {
             background: var(--bg-secondary);
             padding: 2rem;
@@ -225,21 +200,25 @@
             transition: var(--transition);
             border-top: 4px solid var(--primary-color);
         }
+
         .stat-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
+
         .stat-card i {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
+
         .stat-card h3 {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
+
         .stat-card p {
             color: var(--text-secondary);
             font-weight: 500;
@@ -250,9 +229,11 @@
             padding: 6rem 0;
             background: var(--bg-secondary);
         }
+
         .skill-category-section {
             margin-bottom: 4rem;
         }
+
         .category-header {
             display: flex;
             align-items: center;
@@ -261,6 +242,7 @@
             padding-bottom: 1rem;
             border-bottom: 2px solid var(--border-color);
         }
+
         .category-icon {
             width: 60px;
             height: 60px;
@@ -272,21 +254,25 @@
             color: white;
             font-size: 1.5rem;
         }
+
         .category-header h2 {
             font-size: 2rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
+
         .category-header p {
             color: var(--text-secondary);
             margin: 0;
         }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 1.5rem;
         }
+
         .skill-item {
             background: var(--bg-primary);
             padding: 1.5rem;
@@ -294,35 +280,42 @@
             box-shadow: var(--shadow-md);
             transition: var(--transition);
         }
+
         .skill-item:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
         }
+
         .skill-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 1rem;
         }
+
         .skill-header h3 {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
         }
+
         .skill-level {
             padding: 0.25rem 0.75rem;
             border-radius: 1rem;
             font-size: 0.75rem;
             font-weight: 500;
         }
+
         .skill-level.expert {
             background: var(--success-color);
             color: white;
         }
+
         .skill-level.intermediate {
             background: var(--warning-color);
             color: white;
         }
+
         .skill-bar {
             background: var(--bg-secondary);
             height: 8px;
@@ -330,6 +323,7 @@
             overflow: hidden;
             margin-bottom: 1rem;
         }
+
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
@@ -337,6 +331,7 @@
             transition: width 2s ease-out;
             width: 0%;
         }
+
         .skill-item p {
             color: var(--text-secondary);
             font-size: 0.875rem;
@@ -344,11 +339,12 @@
             margin: 0;
         }
 
-        /* Continuous Learning */
+        /* Learning Section */
         .learning-section {
             padding: 6rem 0;
             background: var(--bg-primary);
         }
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
@@ -356,11 +352,13 @@
             margin-bottom: 3rem;
             color: var(--text-primary);
         }
+
         .learning-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+
         .learning-card {
             background: var(--bg-secondary);
             padding: 2rem;
@@ -371,6 +369,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .learning-card::before {
             content: '';
             position: absolute;
@@ -380,21 +379,25 @@
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
+
         .learning-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
+
         .learning-card i {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
+
         .learning-card h3 {
             font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 1rem;
         }
+
         .learning-card p {
             color: var(--text-secondary);
             line-height: 1.6;
@@ -407,15 +410,18 @@
             text-align: center;
             border-top: 1px solid var(--border-color);
         }
+
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .social-links {
             display: flex;
             gap: 1rem;
         }
+
         .social-links a {
             width: 40px;
             height: 40px;
@@ -427,6 +433,7 @@
             border-radius: 50%;
             transition: var(--transition);
         }
+
         .social-links a:hover {
             background: var(--secondary-color);
             transform: translateY(-2px);
@@ -443,9 +450,11 @@
                 transform: translateY(0);
             }
         }
+
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
         }
+
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
@@ -455,28 +464,35 @@
         .delay-800 { animation-delay: 0.8s; }
         .delay-1000 { animation-delay: 1.0s; }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
             }
+
             .page-title {
                 font-size: 2rem;
             }
+
             .category-header {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
             }
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
             .overview-stats {
                 grid-template-columns: 1fr;
             }
+
             .footer-content {
                 flex-direction: column;
                 gap: 1rem;
             }
+
             .container {
                 padding: 0 1rem;
             }
@@ -488,17 +504,12 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">VP</a>
-            <ul class="nav-menu" id="nav-menu">
+            <ul class="nav-menu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="exp.html" class="nav-link">Experience</a></li>
                 <li><a href="skills.html" class="nav-link active">Skills</a></li>
                 <li><a href="education.html" class="nav-link">Education</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <button class="theme-toggle" onclick="toggleTheme()">
                 <i class="fas fa-moon"></i>
             </button>
@@ -539,7 +550,7 @@
     <!-- Skills Categories -->
     <section class="skills-section">
         <div class="container">
-
+            
             <!-- Automation & Infrastructure as Code -->
             <div class="skill-category-section fade-in-up">
                 <div class="category-header">
@@ -805,7 +816,7 @@
         function toggleTheme() {
             const body = document.body;
             const themeToggle = document.querySelector('.theme-toggle i');
-
+            
             if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
                 themeToggle.className = 'fas fa-moon';
@@ -816,37 +827,38 @@
                 localStorage.setItem('theme', 'dark');
             }
         }
+
+        // Apply saved theme on load
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme');
             const themeToggle = document.querySelector('.theme-toggle i');
+            
             if (savedTheme === 'dark') {
                 document.body.setAttribute('data-theme', 'dark');
                 themeToggle.className = 'fas fa-sun';
             }
         });
 
-        // Hamburger menu toggle
-        document.getElementById('hamburger').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
-
         // Smooth scrolling navbar effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
-                navbar.style.background = document.body.getAttribute('data-theme') === 'dark'
-                    ? 'rgba(17, 24, 39, 0.98)'
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.98)' 
                     : 'rgba(255, 255, 255, 0.98)';
             } else {
-                navbar.style.background = document.body.getAttribute('data-theme') === 'dark'
-                    ? 'rgba(17, 24, 39, 0.95)'
+                navbar.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.95)' 
                     : 'rgba(255, 255, 255, 0.95)';
             }
         });
 
-        // Animate skill progress bars
-        const observerOptions = { threshold: 0.5, rootMargin: '0px 0px -50px 0px' };
+        // Animate skill progress bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -861,12 +873,19 @@
             });
         }, observerOptions);
 
-        // Observe skill items and fade-in
+        // Observe all skill items
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.skill-item').forEach(item => observer.observe(item));
-            document.querySelectorAll('.fade-in-up').forEach(el => {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                observer.observe(item);
+            });
+
+            // Animate fade-in elements
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
+                
                 const fadeObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -875,6 +894,7 @@
                         }
                     });
                 }, { threshold: 0.1 });
+                
                 fadeObserver.observe(el);
             });
         });
