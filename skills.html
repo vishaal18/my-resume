@@ -899,5 +899,38 @@
             });
         });
     </script>
+    <script>
+  // Toggle mobile menu
+  document.querySelector('.mobile-menu-toggle')
+    .addEventListener('click', function() {
+      const menu = document.querySelector('.nav-menu');
+      const icon = this.querySelector('i');
+      menu.classList.toggle('active');
+      icon.className = menu.classList.contains('active')
+        ? 'fas fa-times'
+        : 'fas fa-bars';
+    });
+
+  // Retain theme toggle (if present)
+  function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+    if (body.dataset.theme === 'dark') {
+      delete body.dataset.theme;
+      icon.className = 'fas fa-moon';
+      localStorage.theme = 'light';
+    } else {
+      body.dataset.theme = 'dark';
+      icon.className = 'fas fa-sun';
+      localStorage.theme = 'dark';
+    }
+  }
+  // Apply saved theme
+  if (localStorage.theme === 'dark') {
+    document.body.dataset.theme = 'dark';
+    document.getElementById('theme-icon').className = 'fas fa-sun';
+  }
+</script>
+
 </body>
 </html>
