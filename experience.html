@@ -843,5 +843,22 @@
             });
         });
     </script>
+    <script>
+// Mobile menu toggle functionality
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle i');
+    
+    navMenu.classList.toggle('active');
+    
+    // Change hamburger to X when open
+    if (navMenu.classList.contains('active')) {
+        mobileToggle.className = 'fas fa-times';
+    } else {
+        mobileToggle.className = 'fas fa-bars';
+    }
+}
+</script>
+
 </body>
 </html>
