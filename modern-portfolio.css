@@ -1,117 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vishal Pandey – Site Reliability Engineer</title>
-  <!-- Main stylesheet -->
-  <link rel="stylesheet" href="modern-portfolio.css" />
-</head>
-<body data-theme="light">
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo">Vishal Pandey</a>
-      <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-      <ul class="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="static/files/my_resume.pdf" target="_blank" class="nav-link">Resume</a></li>
-      </ul>
-    </div>
-  </header>
+:root {
+  --clr-primary: #21808d;
+  --clr-accent: #1a6862;
+  --clr-bg: #fff;
+  --clr-dark: #13343b;
+  --radius: 8px;
+  --fs-h1: clamp(2rem,5vw,3rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;line-height:1.6;background:var(--clr-bg);color:var(--clr-dark);transition:background .3s,color .3s}
+body[data-theme="dark"]{background:var(--clr-dark);color:var(--clr-bg)}
+.container{width:90%;max-width:1024px;margin:0 auto;padding:4rem 0}
+.site-header{position:sticky;top:0;background:rgba(255,255,255,0.8);backdrop-filter:blur(10px);z-index:100;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+body[data-theme="dark"] .site-header{background:rgba(19,52,59,0.8)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.logo{font-weight:700;font-size:1.5rem;color:var(--clr-primary);text-decoration:none}
+.nav{display:flex;align-items:center;gap:1rem}
+.nav a, .btn-resume, .theme-switch, .menu-toggle{background:none;border:none;color:inherit;cursor:pointer;font-size:1rem;padding:0.5rem 1rem;text-decoration:none;transition:color .3s}
+.nav a:hover, .btn-resume:hover{color:var(--clr-primary)}
+.menu-toggle{display:none}
+@media(max-width:768px){
+  .nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--clr-bg);display:none}
+  .nav.open{display:flex}
+  .menu-toggle{display:block}
+}
 
-  <main class="container">
-    <!-- Home Section (Hero) -->
-    <section id="home" class="hero">
-      <h1>Hi, I’m Vishal Pandey</h1>
-      <p>5+ years optimizing infrastructure, automating deployments, and ensuring 99.9% uptime for mission-critical systems. I’m a Site Reliability Engineer passionate about building resilient, scalable infrastructure.</p>
-      <img src="static/images/photo.jpg" alt="Vishal Pandey" class="hero-img" />
-      <!-- SVG Divider -->
-      <div class="svg-divider">
-        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0,0 C600,100 600,0 1200,100 L1200,0 L0,0 Z" fill="var(--bg-secondary)" />
-        </svg>
-      </div>
-    </section>
+/* Hero */
+.hero{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 1rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg, var(--clr-primary), var(--clr-accent));opacity:0.2;animation:animate 10s linear infinite}
+@keyframes animate{0%{transform:translateX(-25%)}100%{transform:translateX(25%)}}
+.hero-content h1{font-size:var(--fs-h1);margin-bottom:1rem;color:var(--clr-dark)}
+.hero-content p{max-width:600px;margin:0 auto 2rem;color:var(--clr-dark)}
+.btn-primary{background:var(--clr-primary);color:#fff;padding:0.75rem 1.5rem;border-radius:var(--radius);text-decoration:none;transition:background .3s}
+.btn-primary:hover{background:var(--clr-accent)}
 
-    <!-- Experience Section -->
-    <section id="experience" class="card-section">
-      <h2>Experience</h2>
-      <ul class="list-icons">
-        <li><i class="icon fas fa-server"></i> 5+ years in Site Reliability Engineering, Infrastructure Management, and System Administration.</li>
-        <li><i class="icon fas fa-chart-line"></i> Reduced downtime and accelerated incident resolution across roles.</li>
-        <li><i class="icon fas fa-users"></i> Collaborated with dev teams and stakeholders to deliver reliable solutions.</li>
-        <li><i class="icon fas fa-cloud"></i> Evolved expertise with Kubernetes, AWS, and modern monitoring.</li>
-      </ul>
-    </section>
+/* Sections */
+.section{padding:4rem 0}
+.section h2{text-align:center;font-size:2rem;margin-bottom:2rem;color:var(--clr-primary)}
 
-    <!-- Skills Section -->
-    <section id="skills" class="card-section">
-      <h2>Skills</h2>
-      <ul class="grid skills-grid">
-        <li><i class="icon fas fa-cogs"></i> Ansible & Terraform</li>
-        <li><i class="icon fas fa-sync-alt"></i> CI/CD Pipelines</li>
-        <li><i class="icon fab fa-aws"></i> AWS EC2, S3, CloudWatch</li>
-        <li><i class="icon fab fa-docker"></i> Docker & Kubernetes</li>
-        <li><i class="icon fas fa-chart-pie"></i> Prometheus & Grafana</li>
-        <li><i class="icon fas fa-file-alt"></i> ELK Stack</li>
-        <li><i class="icon fas fa-code"></i> Python & Windows Scripting</li>
-        <li><i class="icon fas fa-shield-alt"></i> Disaster Recovery Automation</li>
-      </ul>
-      <p class="mt-8">Pursuing AWS Solutions Architect Associate; enhancing Python for SRE tooling; deepening Kubernetes and service-mesh knowledge.</p>
-    </section>
+/* Cards */
+.cards .card-grid, .alternate .card-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--clr-bg);padding:2rem;border-radius:var(--radius);box-shadow:0 2px 6px rgba(0,0,0,0.1);text-align:center;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+.card .icon{font-size:2rem;color:var(--clr-primary);margin-bottom:1rem}
 
-    <!-- Education & Projects Section -->
-    <section id="education" class="card-section">
-      <h2>Education & Projects</h2>
-      <h3>University of Regina (2017–2019)</h3>
-      <p>Advanced studies in distributed computing and scalable architecture design.</p>
-      <h3 class="mt-6">Mumbai University (2013–2016)</h3>
-      <p>Undergraduate in computer networks, database systems, and IT infrastructure.</p>
+/* Skills */
+.skills .skill-list{display:flex;flex-wrap:wrap;gap:1rem;justify:center}
+.skill-list li{background:var(--clr-bg);padding:0.5rem 1rem;border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,0.1);display:flex;align-items:center;gap:0.5rem;transition:transform .3s}
+.skill-list li:hover{transform:scale(1.05)}
+.skill-list i{color:var(--clr-primary)}
 
-      <h3 class="mt-8">Key Projects</h3>
-      <ul class="list-icons mt-4">
-        <li><i class="icon fas fa-tools"></i> <strong>Asset Management System:</strong> Automated web-based asset tracking, cutting tracking time by 60%.</li>
-        <li><i class="icon fas fa-bell"></i> <strong>Monitoring Scripts:</strong> Python + Prometheus + Grafana + Slack; 40% faster incident response.</li>
-        <li><i class="icon fas fa-box"></i> <strong>CI/CD & Containers:</strong> Docker & Kubernetes pipelines—99.9% success, 50% faster releases.</li>
-        <li><i class="icon fas fa-database"></i> <strong>Backup & DR Automation:</strong> Veeam workflows reducing failures to &lt;1% and RTO by 70%.</li>
-        <li><i class="icon fas fa-shield-virus"></i> <strong>Compliance Dashboard:</strong> Real-time security metrics; 90% improved visibility.</li>
-      </ul>
-    </section>
-  </main>
+/* Resume Modal */
+.modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;align-items:center;justify-content:center;z-index:200}
+.modal.open{display:flex}
+.modal-content{background:var(--clr-bg);width:90%;max-width:800px;position:relative;border-radius:var(--radius);overflow:hidden}
+.modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer}
+.modal-content iframe{width:100%;height:80vh;border:none}
 
-  <!-- Scripts -->
-  <script>
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
-      document.querySelector('.nav-menu').classList.toggle('active');
-    });
-    // Scroll-spy navigation highlight
-    const sections = document.querySelectorAll('section'),
-          navLinks = document.querySelectorAll('.nav-link');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(sec => {
-        const top = window.scrollY,
-              offset = sec.offsetTop - 100;
-        if (top >= offset) current = sec.getAttribute('id');
-      });
-      navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
-      });
-    });
-    // Theme toggle
-    document.querySelector('.theme-toggle').addEventListener('click', () => {
-      const body = document.body;
-      const theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      body.setAttribute('data-theme', theme);
-    });
-  </script>
-  <!-- Font Awesome CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-pQ2f4bH1uG+YQmDFLR3jPh0R6QbTjkgWi1Eb+fX/2eIUiRX1z4ksaN5aILg8KpfC9mOCh0mYm5YjVmYQ7hX6UQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
-</html>
+/* Back to Top */
+#backTop{position:fixed;bottom:2rem;right:2rem;background:var(--clr-primary);color:#fff;padding:0.75rem;border-radius:50%;font-size:1.25rem;display:none;cursor:pointer}
+#backTop.visible{display:block}
