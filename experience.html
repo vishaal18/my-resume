@@ -141,6 +141,76 @@
             color: var(--primary-color);
         }
 
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hamburger:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+            border-radius: 4px;
+        }
+
+        /* Mobile nav */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 4rem;
+                right: 1rem;
+                background: var(--bg-primary);
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 0.75rem 1rem;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-md);
+                min-width: 160px;
+                z-index: 1100;
+            }
+
+            .nav-menu.show {
+                display: flex;
+            }
+
+            /* slightly adjust spacing on small screens */
+            .nav-container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Hamburger animation (X when active) */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-6px);
+        }
+
         /* Page Header */
         .page-header {
             background: var(--bg-gradient);
@@ -500,13 +570,22 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">VP</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="exp.html" class="nav-link active">Experience</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="education.html" class="nav-link">Education</a></li>
+
+            <!-- Hamburger button (mobile only) -->
+            <button id="hamburger" class="hamburger" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu" role="menu">
+                <li><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                <li><a href="exp.html" class="nav-link active" role="menuitem">Experience</a></li>
+                <li><a href="skills.html" class="nav-link" role="menuitem">Skills</a></li>
+                <li><a href="education.html" class="nav-link" role="menuitem">Education</a></li>
             </ul>
-            <button class="theme-toggle" onclick="toggleTheme()">
+
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
@@ -793,17 +872,6 @@
             }
         }
 
-        // Apply saved theme on load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeToggle = document.querySelector('.theme-toggle i');
-            
-            if (savedTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                themeToggle.className = 'fas fa-sun';
-            }
-        });
-
         // Smooth scrolling navbar effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -818,7 +886,7 @@
             }
         });
 
-        // Animate elements when they come into view
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -833,14 +901,66 @@
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
-        document.addEventListener('DOMContentLoaded', () => {
+        // Combined DOMContentLoaded: apply theme, set up animations and hamburger behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply saved theme on load
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle i');
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.className = 'fas fa-sun';
+            }
+
+            // Observe all fade-in elements
             const fadeElements = document.querySelectorAll('.fade-in-up');
             fadeElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(30px)';
                 observer.observe(el);
             });
+
+            // Hamburger menu behavior
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (hamburger && navMenu) {
+                // Toggle open/close
+                hamburger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const expanded = hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('show');
+                    hamburger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                });
+
+                // Close menu when a nav link is clicked (mobile)
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('show');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (ev) => {
+                    const target = ev.target;
+                    if (navMenu.classList.contains('show') && !navMenu.contains(target) && target !== hamburger && !hamburger.contains(target)) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('show');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Close on Escape key
+                document.addEventListener('keydown', (ev) => {
+                    if (ev.key === 'Escape' && navMenu.classList.contains('show')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('show');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                        hamburger.focus();
+                    }
+                });
+            }
         });
     </script>
 </body>
