@@ -506,10 +506,9 @@
                 <li><a href="skills.html" class="nav-link">Skills</a></li>
                 <li><a href="education.html" class="nav-link">Education</a></li>
             </ul>
-           <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-  <i class="fas fa-bars"></i>
-</button>
-
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
@@ -844,42 +843,5 @@
             });
         });
     </script>
-    <script defer>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Elements
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu    = document.querySelector('.nav-menu');
-    const themeTgl   = document.querySelector('.theme-toggle');
-    const themeIcon  = document.getElementById('theme-icon');
-
-    // Mobile menu toggle
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const icon = menuToggle.querySelector('i');
-      icon.className = navMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
-    });
-
-    // Theme toggle
-    themeTgl.addEventListener('click', () => {
-      const isDark = document.body.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.body.removeAttribute('data-theme');
-        themeIcon.className = 'fas fa-moon';
-        localStorage.setItem('theme', 'light');
-      } else {
-        document.body.setAttribute('data-theme', 'dark');
-        themeIcon.className = 'fas fa-sun';
-        localStorage.setItem('theme', 'dark');
-      }
-    });
-
-    // Apply saved theme on load
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.setAttribute('data-theme', 'dark');
-      themeIcon.className = 'fas fa-sun';
-    }
-  });
-</script>
-
 </body>
 </html>
